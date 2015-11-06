@@ -1,0 +1,32 @@
+# OSX
+.DS_Store
+
+# Eclipse:
+.classpath
+.settings
+.project
+bin
+
+# Maven:
+target
+pom.xml
+
+# Lein:
+.lein-*
+/checkouts
+
+# Misc
+.cache
+*.swp
+.metadata
+*.log
+
+# Compass
+.sass-cache
+
+# hg
+*.orig
+classes/*
+
+# properties
+/resources/private/configs/*.properties
