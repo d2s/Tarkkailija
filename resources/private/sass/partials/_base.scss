@@ -1,0 +1,47 @@
+/* breakpoints*/
+$breakpoint4: $cols4;
+$breakpoint5: $cols5;
+$breakpoint6: $cols6;
+$breakpoint7: $cols7;
+$breakpoint8: $cols8;
+$breakpoint9: $cols9;
+$breakpoint10: $cols10;
+$breakpoint11: $cols11;
+$breakpoint12: $cols12;
+$breakpoint13: $cols13;
+$breakpoint14: $cols14;
+
+@mixin width-wrapper {
+  margin:0 auto;
+  max-width: 1000px;
+}
+
+body {
+  margin:0 auto;
+  background: $dark-background;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    /* Inflate text size on mobiles by full increments only */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+.page {
+  display: none;
+  /*@include width-wrapper;*/
+  margin-top: $baseline * 5;
+}
+
+.wrapper {
+  min-width: 750px;
+  max-width: 1020px;
+  padding: $marginL;
+  .content {
+    width: 70%;
+  }
+  aside {
+    width: auto;
+  }
+}

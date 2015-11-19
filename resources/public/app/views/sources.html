@@ -1,0 +1,19 @@
+<div ng-controller="SourcesController" class="light-content-area">
+  <h1 sade-i18n="sources.title">Tarkkailijan tietolähteet</h1>
+  <p><span sade-i18n="frontpage.footer.geolicense"></span></p>
+  <p sade-i18n="sources.description">Tarkkailija louhii tietonsa automaattisesti seuraavista lähteistä.</p>
+  
+  <h2 sade-i18n="sources.authorities">Viranomaislähteet</h2>
+  
+  <span class="ajax-loader dark" ng-show="authorities == null"></span>
+  <ul class="comma-list" ng-hide="authorities == null">
+    <li ng-repeat="item in authorities"><a href="{{item.link}}">{{item.name}}</a></li>
+  </ul>
+  
+  <h2 sade-i18n="sources.media">Medialähteet</h2>
+  
+  <span class="ajax-loader dark" ng-show="media == null"></span>
+  <ul class="comma-list" ng-hide="media == null">
+    <li ng-repeat="item in media"><a href="{{item.link}}">{{item.name}}</a></li>
+  </ul>
+</div>

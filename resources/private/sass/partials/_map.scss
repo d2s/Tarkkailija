@@ -1,0 +1,34 @@
+.olPopup {
+  min-height: 120px;
+  max-height: 400px;
+  width: 470px !important;
+  font: Calibri;
+  cursor: auto;
+  background-color: white;
+
+   #popup-id_FrameDecorationDiv_0, #popup-id_FrameDecorationDiv_1, #popup-id_FrameDecorationDiv_2, #popup-id_FrameDecorationDiv_3, #popup-id_FrameDecorationDiv_4 {
+    display: none;
+   }
+   #popup-id_GroupDiv {
+    background-color: white;
+    box-shadow: 10px 10px black;
+   }
+   .olPopupCloseBox {
+    background: url('/app/img/icons-sprite.png') no-repeat;
+    cursor: pointer;
+    background-position: 0px -900px;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 4px !important;
+    top: 15px !important;
+   }
+   .olFramedCloudPopupContent {
+    padding: 5px;
+    overflow: auto;
+    min-height: 120px;
+    max-height: 345px !important;
+    width: 450px !important;
+
+   }
+}

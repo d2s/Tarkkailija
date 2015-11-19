@@ -1,0 +1,636 @@
+/*!
+ * ajk's Hot New Template
+ * Made by ajk (ajk.fi)
+ */
+
+@import "partials/_frameless";
+@import "compass/css3";
+
+// New colors
+$brand-color-main: #0065BD;
+$brand-color-main-light1: #3B84CB;
+$brand-color-main-light2: #6DA3D8;
+$brand-color-main-light3: #9EC1E5;
+$brand-color-main-light4: #CEE1F2;
+
+$brand-color-alt: #00A3E0;
+$brand-color-alt-light1: #43B5E6;
+$brand-color-alt-light2: #72C7ED;
+$brand-color-alt-light3: #A2DAF2;
+$brand-color-alt-light4: #D0ECF9;
+
+$highlight-color-green: #78BE20;
+$highlight-color-green-light1: #93CA53;
+
+$highlight-color-yellow: #FFFF00;
+
+$highlight-color-orange: #FCC977;
+
+// Style wide settings
+$color-text: #333;
+$color-dark-bg: rgb(136,138,140);
+$color-green: rgb(4,199,20);
+$color-orange: rgb(245,126,35);
+$color-dark-grey: rgb(79,79,79);
+$color-light-grey: rgb(246,246,246);
+$font-body: 'Helvetica Neue', sans-serif;
+$font-heading: 'Arial Narrow', sans-serif;
+
+$dark-background: #3E3E3E;
+
+@mixin grey-gradient {
+  background-image: url('/app/img/grey-gradient.png');
+  background-size: contain;
+}
+
+@mixin darker-grey-gradient {
+  background-image: url('/app/img/darker-grey-gradient.png');
+  background-size: contain;
+}
+
+@mixin blue-gradient {
+  background-image: url('/app/img/blue-gradient.png');
+  background-size: contain;
+}
+
+@mixin darker-blue-gradient {
+  background-image: url('/app/img/darker-blue-gradient.png');
+  background-size: contain;
+}
+
+
+@mixin grey-gradient-box {
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('/app/img/grey-gradient-widget.png');
+  padding: 20px 20px 0px 20px;
+  @include box-shadow(0px 0px 10px rgb(50, 50, 50));
+  @include border-radius(4px);
+}
+
+$experimental-support-for-svg: true;
+
+$baseline: 24px;
+
+$marginL: $baseline;
+$marginM: $baseline/2;
+$marginS: $baseline/4;
+
+// Mixins
+@mixin image-replacement {
+  text-indent:100%;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+@mixin clearfix {
+  *zoom: 1;
+
+  &:before, &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin disable-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin box-header() {
+  background-color: $brand-color-main;
+  font-weight: bold;
+  color: white;
+  padding: 8px 15px 5px 15px;
+}
+
+@mixin removable-list($bgColor, $hoverBgColor) {
+  list-style: none;
+  padding-left: 0px;
+
+  li {
+    margin-left: 0px;
+    margin-bottom: 0.5em;
+
+    a {
+      background-color: $bgColor;
+      padding: 5px;
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        background-color: $hoverBgColor;
+      }
+    }
+  }
+}
+
+@mixin dark-ajax-loader-bg {
+  background-image: url('/app/img/ajax-loader-dark-bg.gif');
+}
+
+@mixin blue-ajax-loader-bg {
+  background-image: url('/app/img/ajax-loader-green-blue-bg.gif');
+}
+
+/* RESET
+----------------------------------------------------------------------------- */
+/* AngularJS ng-cloak hiding */
+.ng-cloak {
+  display: none;
+}
+
+@import "partials/_reset";
+
+
+/*------------------------------------*\
+    ELEMENTS
+\*------------------------------------*/
+
+/* BASE
+----------------------------------------------------------------------------- */
+@import "partials/_base";
+
+/* TYPOGRAPHY
+----------------------------------------------------------------------------- */
+@import "partials/_typography";
+
+/*------------------------------------*\
+    OBJECTS
+\*------------------------------------*/
+
+/* ICONS & ANIMATIONS
+----------------------------------------------------------------------------- */
+@import "partials/_icons";
+
+/* BUTTONS
+----------------------------------------------------------------------------- */
+@import "partials/_buttons";
+
+/* FORMS
+----------------------------------------------------------------------------- */
+@import "partials/_forms";
+
+/* TABLES
+----------------------------------------------------------------------------- */
+@import "partials/_tables";
+
+/*------------------------------------*\
+    COMPONENTS
+\*------------------------------------*/
+
+@import "partials/_footer";
+@import "partials/_dialog";
+@import "partials/_errors";
+@import "partials/_boxes";
+@import "partials/_tabs";
+@import "partials/_header";
+@import "partials/_other";
+@import "partials/_map";
+
+/*------------------------------------*\
+    PAGES
+\*------------------------------------*/
+
+@import "pages/_index";
+@import "pages/_search";
+@import "pages/_register";
+@import "pages/_feedback";
+@import "pages/_personal-info";
+@import "pages/_terms";
+@import "pages/_browse";
+@import "pages/_reports";
+@import "pages/_similar";
+
+/* Tarkkailija stuff */
+
+.clearBoth {
+  clear: both;
+}
+
+#main-wrap {
+  min-height: 100%;
+  min-width: 1048px;
+}
+
+#content {
+  padding-top: 1em;
+  @include clearfix;
+  padding-bottom: 140px;
+}
+
+.placeholder {
+  color: #aaa;
+}
+
+.wizard-search {
+  margin-top: 1.5em;
+  margin-left: 3em;
+  padding-left: 2.3em;
+
+  span {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    color: #FFF;
+    font-style: italic;
+  }
+}
+
+.light-content-area {
+  background-color: white;
+  padding: 32px;
+  padding-top: 16px;
+
+  a {
+    color: $brand-color-alt;
+  }
+}
+
+a.no-decoration {
+  text-decoration: none;
+  color: $color-text;
+}
+
+[name="autocomplete"] + .ui-helper-hidden-accessible {
+  display: none;
+}
+
+.ui-autocomplete-input{
+
+  position: relative;
+  height: 17px;
+
+  &.ui-autocomplete-loading {
+    background: #ffffff url('/app/img/ajax-loader-small.gif') no-repeat right center;
+  }
+
+}
+.ui-autocomplete, #empty-message {
+  z-index: 12010;
+  background-color: white;
+  @include box-shadow(1px 1px 1px rgba(0,0,0,.1), 1px 1px 6px rgba(0,0,0,.15));
+  display: block;
+  padding: 0.3125em 0.5em;
+  margin-top: 4px;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.1);
+  width: 230px;
+  @include border-radius(4px);
+
+  list-style: none;
+
+  .ui-menu-item {
+    cursor: pointer;
+
+    margin: 0 auto;
+    border-bottom: 1px solid rgb(220,220,220);
+    color: $color-text;
+    &:last-child{
+      border: none;
+    }
+    a {
+      display: inline-block;
+      width: 100%;
+      padding: 4px;
+      &.ui-state-focus {
+        @include blue-gradient;
+        color: white;
+        @include border-radius(3px);
+        margin-left: -5px;
+        padding-left: 9px;
+        width: 98%;
+      }
+    }
+  }
+}
+
+#empty-message {
+  display: none;
+  margin-top: -10px;
+  margin-left: 7px;
+}
+
+.logout {
+  float: right;
+  margin: $marginL;
+  margin-right: $marginL + $marginS;
+
+}
+
+#lang-select {
+  float: right;
+  display: inline-block;
+  span {
+    color: #FFF;
+    a {
+      margin-left: $marginS;
+      margin-right: $marginS;
+      color: #FFF;
+      display: inline-block;
+      text-decoration: none;
+    }
+  }
+}
+
+#flash-message {
+  @include box-style;
+  @include box-shadow(0px 20px 20px -10px rgba(0, 0, 0, 0.5));
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  width: 600px;
+  margin-left: -300px;
+  display: none; // initially hidden
+  z-index: 20000;
+
+  &.info {
+    background-color: rgb(214, 254, 214);
+  }
+
+  &.warn {
+    background-color: rgb(254, 254, 214);
+  }
+
+  &.error {
+    background-color: rgb(254, 214, 214);
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0px;
+
+    li {
+      padding-left: 3em;
+      background-image: url('/app/img/icons-sprite.png');
+      background-repeat: no-repeat;
+      display: block;
+      min-height: 30px;
+      padding-top: 5px;
+      padding-bottom: 0px;
+
+      &.info {
+        background-position: 0px -1995px;
+      }
+
+      &.warn {
+        background-position: 0px -2095px;
+      }
+
+      &.error {
+        background-position: 0px -2195px;
+      }
+    }
+  }
+}
+
+[sade-slider] {
+  width: 200px;
+  height: 10px;
+  border: 1px solid white;
+
+  .ui-slider-range {
+    height: 100%;
+    background-color: red;
+  }
+
+  .ui-slider-handle {
+    @include border-radius(2px);
+    background-color: blue;
+    width: 10px;
+    height: 18px;
+    margin-left: -5px;
+    margin-top: -14px;
+    display: block;
+    position: relative;
+  }
+}
+
+.stuck {
+  position: fixed;
+  top: 0px;
+  z-index: 100;
+}
+
+.ajax-loader {
+  width: 16px;
+  height: 10px;
+  display: inline-block;
+
+  &.dark {
+    @include dark-ajax-loader-bg;
+  }
+
+  &.blue {
+    @include blue-ajax-loader-bg;
+  }
+}
+
+.dev-debug {
+  width: 200px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background-color: white;
+  padding: 10pt;
+  border: 2px solid black;
+  box-shadow: 3px 4px 7px;
+}
+
+img.logo {
+  margin-top: 4px;
+}
+
+.map-dialog {
+  position: fixed;
+  left: 300px;
+  top: 50px;
+  width: 720px;
+  height: 830px;
+  overflow: visible;
+  z-index: 10000;
+
+  .map-dialog-section {
+    @include blue-gradient;
+    padding: 0px;
+    margin-top: 0px;
+    position: relative;
+    border: 1px solid #c5c5c5;
+    border-top: 0px;
+
+    .map-selected-areas {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      width: 285px;
+      overflow: auto;
+      padding: 5px;
+      border-left: 3px solid rgba(0, 0, 0, 0.2);
+
+      .ajax-loader {
+        float: right;
+        margin-top: 5px;
+      }
+
+      section {
+        background-color: $brand-color-alt-light3;
+        padding: 5px;
+        margin-top: 0px;
+        height: auto;
+      }
+
+      .area-list {
+        @include removable-list($brand-color-main, $brand-color-main-light1);
+
+        a {
+          color: white;
+          padding: 3px 5px;
+        }
+      }
+    }
+  }
+
+  .map {
+    position: relative;
+    width: auto;
+    height: 700px;
+    z-index: 10010;
+
+    .olMapViewport {
+      cursor: move;
+    }
+
+    .olControlDrawFeatureActive {
+      cursor: crosshair;
+    }
+
+    .olPopup {
+      cursor: auto;
+    }
+
+    @mixin map-control-box {
+      @include box-shadow(0px 20px 20px -10px rgba(0, 0, 0, 0.5));
+      background-color: $brand-color-alt-light3;
+      color: white;
+      position: absolute;
+      z-index: 12000;
+      padding: 0px;
+
+      header {
+        font-size: 0.9em;
+      }
+    }
+
+    .map-autocomplete {
+      @include map-control-box;
+      top: 10px;
+      left: 50px;
+      min-width: 220px;
+
+      div {
+        width: 86%;
+        margin: 10px 10px 0px;
+      }
+    }
+
+    .controlToggle {
+      @include map-control-box;
+      top: 10px;
+      right: 10px;
+      text-align: center;
+
+      ul {
+        padding: 0px;
+        margin-left: 5px;
+        margin-right: 5px;
+
+        li {
+          list-style: none;
+          margin: 3px auto;
+
+          button {
+            width: 165px;
+            height: 26px;
+            padding-top: 0px;
+            padding-left: 14px;
+
+            &.on {
+              background-color: $brand-color-main-light3;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.action-box {
+  float: left;
+  margin-left: 2em;
+  margin-top: 1.5em;
+
+  header {
+    @include box-header();
+  }
+
+  @include border-radius(5px);
+  @include blue-gradient;
+  @include box-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+  display: inline-block;
+
+  form {
+    margin: 1em;
+    text-align: center;
+
+    .form-entry {
+      text-align: left;
+    }
+
+    button {
+
+    }
+  }
+}
+
+.comma-list {
+  @include clearfix;
+  margin-bottom: 1em;
+  list-style: none;
+
+  li {
+    float: left;
+    margin-right: 5px;
+
+    &:after {
+      content: ',';
+    }
+
+    &:last-child:after {
+      content: '';
+    }
+  }
+}
+
+#sys-notification {
+  list-style: none;
+  color: invert($color-text);
+
+  li {
+    @include border-radius(5px);
+    padding: 10px;
+    background-color: rgb(50, 122, 146);
+    margin-bottom: 5px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}

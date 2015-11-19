@@ -1,0 +1,141 @@
+legend {
+  font-family: $font-heading;
+  margin:0 0 $baseline;
+}
+
+// Text fields
+//
+// :hover   - Subtle hover style
+// :focus   - Tell the user "Hello, you've selected me!"
+//
+// Styleguide 2.1
+[type="email"], [type="text"], [type="password"], textarea {
+  background: $brand-color-alt-light4;
+  border-left: 3px solid $brand-color-main-light3;
+  border-top: 2px solid $brand-color-main-light3;
+  border-right: none;
+  border-bottom: none;
+  font-size: 0.875em;
+  margin:0 0 $marginM;
+  outline: 0;
+  padding: 0.3125em 0.5em;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+  font-weight: bold;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-style: italic;
+  font-weight: bold;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  font-style: italic;
+  font-weight: bold;
+}
+
+:-ms-input-placeholder {
+  font-style: italic;
+  font-weight: bold;
+}
+
+[type="text"]:hover, [type="password"]:hover, [type="email"]:hover, textarea:hover {
+  border-color: $brand-color-alt-light3;
+}
+
+[type="text"]:focus, [type="password"]:focus, [type="email"]:hover, textarea:focus {
+  border-color: $brand-color-main-light4;
+}
+
+// Drop-down
+//
+// Styleguide 2.2
+select {
+  margin:0 0 $baseline;
+}
+
+// Checkboxes
+//
+// Styleguide 2.3
+label + label {
+  margin-left:15px;
+}
+
+
+fieldset {
+  display: block;
+  label {
+    font-size: 16px;
+    line-height: $baseline;
+    width: auto;
+  }
+  input {
+    height: 18px;
+    margin: 2px $marginS $marginM 0;
+    width: $cols3;
+    display: block;
+  }
+  input.long {
+    width: $cols5;
+    margin: 2px $marginS $marginM 0;
+  }
+  textarea {
+    margin: 2px $marginS $marginM 0;
+    width: $cols5;
+    display: block;
+  }
+  .error {
+    color: #B94A48;
+  }
+  .ng-valid {
+    border-color: #468847;
+  }
+  .ng-invalid {
+    border-color: #B94A48;
+  }
+}
+
+.combobox {
+  height: $baseline;
+  width: $cols3;
+  margin-left: $marginL;
+}
+
+input[type=checkbox] + label {
+    color: $brand-color-main;
+    font-style: italic;
+    cursor: pointer;
+}
+input[type=checkbox] + label:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    margin: 3px 6px 3px 3px;
+    background: $brand-color-alt-light4;
+    border-left: 2px solid $brand-color-main-light3;
+    border-top: 2px solid $brand-color-main-light3;
+    border-right: 1px solid $brand-color-main-light4;
+    border-bottom: 1px solid $brand-color-main-light4;
+    display: inline-block;
+    position: relative;
+    vertical-align: text-bottom;
+    z-index: 1;
+}
+input[type=checkbox] {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    margin-top: 5px;
+    box-shadow: none;
+    -moz-appearance: none;
+}
+input[type=checkbox]:focus {
+    outline: none;
+}
+input[type=checkbox]:checked + label:before {
+    background-color: $highlight-color-green;
+}
+input[type=checkbox]:focus + label:before {
+}

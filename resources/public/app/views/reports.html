@@ -1,0 +1,68 @@
+<div class="light-content-area help-page reports" ng-controller="ReportingController">
+  <h1 sade-i18n="reports.pageinfo">Sivuston tietoja</h1>
+
+  <h2 sade-i18n="reports.users">Käyttäjät</h2>
+
+  <div class="report">
+    <label>
+      <span sade-i18n="timerange.select">Valitse aikaväli</span>
+      <select ng-model="rangeUsersRegistered" ng-change="selectTimeRangeUsersRegistered()">
+        <option sade-i18n="timerange.fiveyears" value="5y">5 vuotta</option>
+        <option sade-i18n="timerange.year" value="1y">Vuosi</option>
+        <option sade-i18n="timerange.month" value="1m">Kuukausi</option>
+        <option sade-i18n="timerange.week" value="1w">Viikko</option>
+      </select>
+    </label>
+    <h3 sade-i18n="reports.users.registeredPerTime">Käyttäjiä rekisteröitynyt aikavälillä</h3>
+    <div class="graph bar-graph">
+      <div class="report-loader" ng-show="queryInProgressUsersRegistered">
+        <img src="/app/img/ajax-loader-big-circle.gif" alt="Ladataan" />
+      </div>
+      <p sade-i18n="reports.noresults" class="noresults" ng-hide="hasResults('usersRegistered')">Ei tuloksia valitulla aikavälillä</p>
+      <div id="registered-users-report" class="graph-container" ng-show="hasResults('usersRegistered')"></div>
+    </div>
+  </div>
+
+  <div class="report">
+    <label>
+      <span sade-i18n="timerange.select">Valitse aikaväli</span>
+      <select ng-model="rangeUsersCumulative" ng-change="selectTimeRangeUsersCumulative()">
+          <option sade-i18n="timerange.fiveyears" value="5y">5 vuotta</option>
+          <option sade-i18n="timerange.year" value="1y">Vuosi</option>
+          <option sade-i18n="timerange.month" value="1m">Kuukausi</option>
+          <option sade-i18n="timerange.week" value="1w">Viikko</option>
+      </select>
+    </label>
+    <h3 sade-i18n="reports.users.registeredCumulative">Käyttäjien kokonaismäärä</h3>
+    <div class="graph line-graph">
+      <div class="report-loader" ng-show="queryInProgressUsersCumulative">
+        <img src="/app/img/ajax-loader-big-circle.gif" alt="Ladataan" />
+      </div>
+     <p sade-i18n="reports.noresults" class="noresults" ng-hide="hasResults('usersCumulative')">Ei tuloksia valitulla aikavälillä</p>
+     <div id="cumulative-users-report" class="graph-container" ng-show="hasResults('usersCumulative')"></div>
+    </div>
+  </div>
+
+  <h2 sade-i18n="reports.categories">Aiheet</h2>
+
+  <div class="report">
+    <label>
+      <span sade-i18n="timerange.select">Valitse aikaväli</span>
+      <select ng-model="rangePopularCategories" ng-change="selectTimeRangePopularCategories()">
+          <option sade-i18n="timerange.fiveyears" value="5y">5 vuotta</option>
+          <option sade-i18n="timerange.year" value="1y">Vuosi</option>
+          <option sade-i18n="timerange.month" value="1m">Kuukausi</option>
+          <option sade-i18n="timerange.week" value="1w">Viikko</option>
+      </select>
+    </label>
+    <h3 sade-i18n="reports.categories.popular">Luetuimmat aiheet</h3>
+    <div class="horizontal-graph bar-graph">
+      <div class="report-loader" ng-show="queryInProgressCategoriesPopular">
+        <img src="/app/img/ajax-loader-big-circle.gif" alt="Ladataan" />
+      </div>
+      <p sade-i18n="reports.noresults" class="noresults" ng-hide="hasResults('categoriesPopular')">Ei tuloksia valitulla aikavälillä</p>
+      <div id="popular-categories-report" class="graph-container" ng-show="hasResults('categoriesPopular')"></div>
+    </div>
+  </div>
+
+</div>

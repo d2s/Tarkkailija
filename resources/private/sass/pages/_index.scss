@@ -1,0 +1,432 @@
+.frontpage-feeds {
+  background-color: $dark-background;
+  color: invert($color-text);
+
+  .push {
+    clear: both;
+  }
+
+  ul.tabs {
+    position: relative;
+    clear: both;
+    top: -80px;
+    text-align: right;
+
+    > li {
+      margin-left: 3px;
+      margin-right: 3px;
+
+      > a {
+        background: lighten($dark-background, 40%);
+        color: $color-text;
+        font-weight: bold;
+        font-size: 0.9em;
+      }
+      &.active > a {
+        background: $dark-background;
+        color: invert($color-text);
+      }
+    }
+  }
+
+  .widget-loader {
+    width: 35%;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 4.5em;
+
+    h3 {
+      color: invert($color-text);
+      margin-top: 1em;
+    }
+  }
+
+  .carousel {
+    overflow: hidden;
+    height: 160px;
+    width: 880px;
+    margin-left: 60px;
+    position: relative;
+  }
+
+  .carousel-left, .carousel-right {
+    width: 42px;
+    height: 160px;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1.0;
+    }
+  }
+
+  .carousel-left {
+    float: left;
+    border: 0;
+    background: transparent;
+    background-image: url('/app/img/carousel-button-left.png');
+  }
+
+  .carousel-right {
+    float: right;
+    border: 0;
+    background: transparent;
+    background-image: url('/app/img/carousel-button-right.png');
+  }
+
+  .widget-feed-titles {
+    list-style: none;
+    height: 40px;
+    margin-left: 4em;
+
+    li {
+      display: inline-block;
+      margin-right: $marginM;
+
+      a {
+        text-decoration: none;
+
+        &:hover h3 {
+          color: #fff;
+        }
+      }
+
+      h3 {
+        color: #FFF;
+        font-size: 1.0em;
+        font-family: 'PT Sans', sans-serif;
+        text-transform: uppercase;
+        // smaller classes are for swedish, they have a lot longer texts in this case
+        &.smaller {
+          font-size: 0.9em;
+        }
+      }
+
+      &.active {
+        h3 {
+          font-size: 1.2em;
+
+          &.smaller {
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+  }
+
+  .widget-feeds {
+    position: absolute;
+    list-style: none;
+  }
+
+  .feed {
+    margin-bottom: 20px;
+
+    > h3 {
+      margin-bottom: 15px;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.9em;
+
+        &:before {
+          font-size: 40px;
+          vertical-align: sub;
+        }
+      }
+
+      aside {
+        float: right;
+
+        span {
+          color: invert($color-text);
+          font-size: 0.6em;
+          margin-right: 10px;
+          vertical-align: sub;
+        }
+      }
+    }
+
+    .article {
+      position: relative; // to allow proper child absolute positioning
+      background-color: #fff;
+      width: 430px;
+      height: 200px;
+      float: left;
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      color: $color-text;
+      @include box-shadow(0px 20px 20px -10px rgba(0, 0, 0, 0.5));
+
+      .img-cutout {
+        width: 160px;
+        overflow: hidden;
+        float: left;
+
+        img {
+          height: 160px;
+          -ms-interpolation-mode: bicubic;
+        }
+      }
+
+      h1,h2,h3,h4,h5,p,blockquote,a {
+        margin-left: 170px;
+        margin-right: 20px;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        margin: 0px;
+        position: absolute;
+      }
+
+      h5 {
+        margin-top: 15px;
+        color: lighten($color-text, 20%);
+      }
+
+      .selectArticle {
+        text-decoration: none;
+        color: $color-text;
+      }
+      .selectArticle, .selectArticle:before {
+
+      }
+    }
+
+    article.article {
+      width: 480px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+
+}
+
+#frontpage-description {
+  width: 45%;
+
+  h2 {
+    font-weight: normal;
+    color: $brand-color-main;
+  }
+
+  a {
+    color: $brand-color-alt;
+  }
+}
+
+#frontpage-wizard {
+  float: right;
+  margin-top: $baseline;
+}
+
+#frontpage-wizard-category-input {
+  form {
+    padding-left: 4.7em;
+  }
+}
+
+.wizard-box {
+  width: 450px;
+  padding-left: 10px;
+  float: right;
+
+  header {
+    background-color: $brand-color-main;
+    padding: $baseline / 1.5;
+    color: #FFF;
+    font-size: 1.5em;
+  }
+  span.wizard-search input{
+    width: 240px;
+    margin-left: 1em;
+  }
+  p {
+    line-height: 1.3em;
+    margin-top: 1em;
+  }
+
+  p.wizard-search {
+    margin-left: 1em;
+    word-spacing: 6px;
+
+    input {
+      margin-right: 6px;
+    }
+  }
+
+  div.area-list {
+    margin: 10px;
+
+    header {
+      text-transform: none;
+      background-color: $brand-color-main;
+    }
+
+    section {
+      background-color: $brand-color-alt-light3;
+      padding: 5px;
+
+      ul {
+        @include removable-list($brand-color-main, $brand-color-main-light1);
+        margin-left: 0px;
+        padding-left: 0px;
+
+        > li > a {
+          color: white;
+          text-decoration: none;
+        }
+
+        li {
+        }
+      }
+    }
+  }
+
+  @mixin wizard-icon {
+    float: right;
+    opacity: 0.75;
+    display: inline-block;
+    background-image: url('/app/img/icons-sprite.png');
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-top: 17px;
+  }
+
+  .expand {
+    @include wizard-icon;
+    background-position: 0px -1200px;
+  }
+  .continue {
+    @include wizard-icon;
+    background-position: 0px -1100px;
+  }
+
+  h1 {
+    font-size: 4em;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFF;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 25px;
+    margin-bottom: 0px;
+  }
+
+  section.wizard-phase-1 {
+    background-color: $brand-color-alt-light2;
+  }
+
+  section.wizard-phase-2 {
+    background-color: $brand-color-alt-light3;
+  }
+
+  section.wizard-phase-3 {
+    background-color: $brand-color-alt-light4;
+    overflow: hidden;
+
+    p {
+      padding-bottom: 20px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color:$brand-color-alt-light3;
+    }
+  }
+
+  section.wizard-phase {
+    padding: 5px 10px 5px 10px;
+    color: $brand-color-main;
+    font-size: 1.2em;
+
+    p {
+      color: $brand-color-main;
+      font-style: italic;
+      padding-left: 80px;
+    }
+
+    .category-tags {
+      list-style: none;
+      @include clearfix;
+      padding-top: 9px;
+      padding-bottom: 9px;
+      padding-left: 2.2em;
+      margin-left: 3em;
+      font-style: italic;
+
+      li {
+        display: block;
+        white-space: nowrap;
+
+        input[type=checkbox] + label {
+          color: $brand-color-main;
+          font-size: 14px;
+          padding-bottom: 3px;
+        }
+
+        input[type=checkbox]:checked + label:before {
+            background-color: $highlight-color-green;
+            background-image: none;
+         }
+      }
+    }
+  }
+}
+
+.frontpage-description-chapter {
+  margin-bottom: 24px;
+  line-height: 24px;
+}
+
+.front-page-list-title {
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+.front-page-list {
+  margin-left: 36px;
+}
+
+.provider-logos {
+  width: 400px;
+  margin-bottom: 12px;
+  margin-top: 24px;
+
+  a {
+    display: inline-block;
+    margin-right: $marginM;
+    max-width: 160px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  p {
+    margin-bottom: 0;
+  }
+
+}
+// roundabout jquery plugin
+
+.roundabout-holder {
+
+  .roundabout-moveable-item {
+    margin: 1em;
+  }
+}
+
+// openlayers override fixes
+
+.olButton:hover {
+  text-decoration: none !important;
+}

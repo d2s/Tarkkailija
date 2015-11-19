@@ -1,0 +1,55 @@
+<div class="frontpage-feeds wrapper">
+
+
+  <sade-carousel class="feed widget" data="widget" ng-show="feeds.selected == 'PUBLIC'">
+     <div class="widget-loader" ng-hide="widget">
+      <img src="/app/img/ajax-loader-big-circle.gif" alt="Ladataan" />
+      <h3 sade-i18n="widget.loader">Odota hetki, suosituksia ladataan...</h3>
+    </div>
+
+    <div ng-show="widget">
+      <ul class="carouselHeader widget-feed-titles">
+        <li ng-repeat="title in widget.titles" data-widget-key="{{title.key}}"><a href="" ng-click="goTo(title.key)"><h3 ng-class="{smaller: lang == 'sv'}">{{title.name}}</h3></a></li>
+      </ul>
+
+      <button class="carousel-left" ng-hide="widget.items == null || widget.items.length < 3 || feeds.selected != 'PUBLIC'" ng-click="carouselLeft()"></button>
+      <button class="carousel-right" ng-hide="widget.items == null || widget.items.length < 3 || feeds.selected != 'PUBLIC'" ng-click="carouselRight()"></button>
+
+      <div class="carousel">
+        <ul class="widget-feeds" ng-hide="feeds.selected != 'PUBLIC'">
+          <li class="article" ng-repeat="item in widget.items" data-widget-key="{{item.key}}">
+            <a class="selectArticle" href="{{item.url}}" target="_blank" title="Näytä artikkeli">
+              <div class="img-cutout">
+                <img ng-src="{{item.image}}" alt="{{item.headline}}" />
+              </div>
+              <h5><span class="icon-small house inline-left "></span>{{item.source}}</h5>
+              <h4>{{item.headline}}</h4>
+              <blockquote>{{item.text}}...</blockquote>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </sade-carousel>
+
+  <div class="feed" ng-repeat="item in feeds.watches" ng-hide="feeds.watches.length == 0">
+    <h3>
+      <a href="" ng-click="showWatch(item.watch)"><span class="icon looking-glass-white inline-left"></span>{{item.watch.name}}</a>
+      <aside>
+        <span>{{i18n('frontpage.publicwatch.more')}}: {{item.watch.name}} ({{item.totalresults}} {{i18n('general.piecesamount')}})</span>
+        <button class="btn slim" ng-click="showWatch(item.watch)"><span class="icon-small list"></span>{{i18n('watch.show')}}</button>
+      </aside>
+    </h3>
+
+    <article class="article" ng-repeat="article in item.articles" ng-hide="$index >= 2">
+      <a class="selectArticle" href="{{article.link}}" target="_blank" title="Näytä artikkeli">
+        <div class="img-cutout">
+          <img ng-src="{{article.picture}}" alt="{{article.headline}}" />
+        </div>
+        <h5><span class="icon-small house inline-left "></span>{{article.sourcename}}</h5>
+        <h4>{{article.headline}}</h4>
+        <blockquote>{{article.description}}...</blockquote>
+      </a>
+    </article>
+  </div>
+</div>

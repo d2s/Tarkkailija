@@ -1,0 +1,26 @@
+
+@mixin authority-color {
+  color: rgb(245, 126, 35);
+}
+@mixin some-color {
+  color: rgb(0, 179, 176);
+}
+@mixin media-color {
+  color: rgb(0, 166, 81);
+}
+
+@mixin box-style {
+  background-color: white;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 6px rgba(0,0,0,.15);
+  display: inline-block;
+  margin: $marginS $marginS 0 $marginS;
+  padding: $marginM;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+@mixin box-wrapper {
+  width: $cols4;
+}
+.wrapper {
+  @include width-wrapper;
+}

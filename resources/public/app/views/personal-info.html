@@ -1,0 +1,63 @@
+<div class="light-content-area wrapper personal-info">
+  <div class=" personal-info-wrapper">
+    <h1 sade-i18n="personal.INFO">OMAT TIEDOT</h1>
+
+    <div class="password-change">
+      <header sade-i18n="user.password.change">Vaihda salasana</header>
+      <form name="changePasswordForm">
+         <fieldset class="form-entry">
+          <label for="password" sade-i18n="user.password.current">Nykyinen salasana:</label>
+          <span class="error" ng-show="changePasswordForm.password.$error.required && !changePasswordForm.password.$pristine" sade-i18n="form.error.mandatory">pakollinen tieto</span>
+          <span class="error" ng-show="changePasswordForm.$error.invalidPassword" sade-i18n="form.error.wrongpassword">Väärä salasana</span>
+          <input type="password" name="password" ng-model="data.password" ng-change="changePasswordForm.$error.invalidPassword = false" required>
+        </fieldset>
+        <fieldset class="form-entry">
+          <label for="password" sade-i18n="user.password.new">Uusi salasana:</label>
+          <span class="error" ng-show="changePasswordForm.newPassword.$error.required && !changePasswordForm.newPassword.$pristine" sade-i18n="form.error.mandatory">pakollinen tieto</span>
+          <span class="error" ng-show="changePasswordForm.newPassword.$error.minlength">{{i18n('form.error.minimumcharacters', 6)}}</span>
+          <input type="password" name="newPassword" ng-model="data.newPassword" required ng-minlength="6">
+        </fieldset>
+        <fieldset class="form-entry">
+          <label for="password2" sade-i18n="user.password.newagain">Uusi salasana uudelleen:</label>
+          <span class="error" ng-show="!correctPassword(data.newPassword2) && !changePasswordForm.password2.$pristine" sade-i18n="form.error.passwordmismatch">salasana ei täsmää</span>
+          <input type="password" name="password2" ng-model="data.newPassword2" ui-validate="{newPassword2 : 'correctPassword($value)'}">
+        </fieldset>
+        <button id="save-new-user" ng-disabled="changePasswordForm.$invalid" ng-click="saveNewPassword()" class="btn" sade-i18n="user.password.change">Vaihda salasana</button>
+      </form>
+    </div>
+
+    <div class="watch-subscriptions">
+      <header sade-i18n="personal.watch.emailsubscriptions">Vahtien sähköpostitilauksesi</header>
+
+      <p ng-show="subscriptions.length == 0" sade-i18n="personal.watch.emailsubscriptions.none">Ei tilauksia</p>
+
+      <table ng-show="subscriptions.length > 0">
+        <thead>
+          <tr>
+            <th sade-i18n="general.watch">Vahti</th>
+            <th sade-i18n="personal.watches.ownwatch?">Oma vahti?</th>
+            <th sade-i18n="personal.watch.subscribelang">Tilauskieli</th>
+            <th sade-i18n="personal.watches.cancelsubscription">Peru tilaus</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="sub in subscriptions">
+            <td><a href="#/search/{{sub.id}}" id="subscription-link">{{sub.name}}</a></td>
+            <td>
+              <span ng-show="sub.own" sade-i18n="general.yes">Kyllä</span>
+              <span ng-hide="sub.own" sade-i18n="general.no">Ei</span>
+            </td>
+            <td>{{sub.lang}}</td>
+            <td><button class="btn" ng-click="unsubscribe(sub)"><span class="icon-small close inline-left"></span><span sade-i18n="general.cancel">Peruuta</span></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="push"></div>
+
+    <a href="#" class="btn slim" sade-i18n="nav.frontpage.back">Palaa etusivulle</a>
+  </div>
+
+</div>

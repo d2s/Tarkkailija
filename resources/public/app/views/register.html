@@ -1,0 +1,34 @@
+<div class="light-content-area wrapper">
+  <h1 sade-i18n="register.title">Rekisteröidy Tarkkailijan käyttäjäksi</h1>
+
+  <div class="info" ng-show="sent">
+    <p>{{i18n('register.activationemail.sent')}} <strong id="activation-email">{{emailsent}}</strong>, {{i18n('register.activationemail.activationhelp')}}</p>
+  </div>
+
+  <form id="create-new-user" name="registerForm" ng-hide="sent">
+    <fieldset class="form-entry">
+      <label for="email" sade-i18n="user.email">Sähköposti:</label>
+      <span class="error" ng-show="registerForm.email.$error.email" sade-i18n="form.error.emailinvalid">Epäkelpo sähköpostiosoite</span>
+      <span class="error" ng-show="emailExists" sade-i18n="form.error.emailalreadyinuse">Annettu osoite on jo rekisteröity</span>
+      <span class="error" ng-show="registerForm.email.$error.required && !registerForm.email.$pristine" sade-i18n="form.error.mandatory">Pakollinen tieto</span>
+      <input type="email" name="email" ng-model="data.email" ng-change="emailExists = false; uniqueEmail()" required>
+    </fieldset>
+    <fieldset class="form-entry">
+      <label for="password" sade-i18n="user.password">Salasana:</label>
+      <span class="error" ng-show="registerForm.password.$error.required && !registerForm.password.$pristine" sade-i18n="form.error.mandatory">Pakollinen tieto</span>
+      <span class="error" ng-show="registerForm.password.$error.minlength">{{i18n('form.error.minimumcharacters', 6)}}</span>
+      <input type="password" name="password" ng-model="data.password" required ng-minlength="6">
+    </fieldset>
+    <fieldset class="form-entry">
+      <label for="password2" sade-i18n="user.password.again">Salasana uudelleen:</label>
+      <span class="error" ng-show="!correctPassword(data.password2)" sade-i18n="form.error.passwordmismatch">Salasana ei täsmää</span>
+      <input type="password" name="password2" ng-model="data.password2" ui-validate="{password2 : 'correctPassword($value)'}">
+    </fieldset>
+    <fieldset>
+      <span class="error" ng-show="!termsAccepted && !registerForm.email.$pristine && !registerForm.password.$pristine && !registerForm.password2.$pristine" sade-i18n="register.form.error.acceptterms">Käyttöehtojen hyväksyntä vaaditaan</span><br>
+      <input type="checkbox" id="acceptTerms" name="terms" ng-model="termsAccepted" required>
+      <span>{{i18n('register.service.terms.accept')}} <a target="_blank" href="#/info/terms" sade-i18n="register.service.terms">käyttöehdot</a></span>
+    </fieldset>
+    <button id="save-new-user" ng-disabled="!termsAccepted || registerForm.$invalid || !correctPassword(data.password2) || emailExists" ng-click="save()" class="btn" sade-i18n="general.register">Rekisteröidy</button>
+  </form>
+</div>

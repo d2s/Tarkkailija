@@ -1,0 +1,14 @@
+<div class="light-content-area wrapper">
+  <h1>Peru vahtisähköpostin tilaus</h1>
+
+  <div ng-show="unsubscribeSuccessfull" class="info">
+    <p>Vahdin tilaus poistettu onnistuneesti. Siirry <a href="/">etusivulle</a> jatkaaksesi Tarkkailijan käyttöä</p>
+  </div>
+
+  <div ng-hide="unsubscribeSuccessfull">
+    <p>Olet perumassa vahtisähköpostin tilausta osoitteeseen <strong>{{email}}</strong>, oletko varma että haluat perua tilauksen?</p>
+
+    <button class="btn" ng-click="cancel()"><span class="icon-small close inline-left"></span>Älä peru</button>
+    <button class="btn green" ng-click="accept()"><span class="icon-small accept inline-left"></span>Hyväksy peruutus</button>
+  </div>
+</div>

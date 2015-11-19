@@ -1,0 +1,18 @@
+  <div class="dev-debug" ng-controller="DebugController" ng-show="configuration.mode == 'dev'">
+    <h4>Development helpers</h4>
+    <ul>
+      <li><a href="#/dev-debug/auto-login" ng-click="autoLogin()">Luo käyttäjä + login</a></li>
+      <li><a href="" ng-click="defaultWatchQuery('Jokioinen', 'Asemakaava')">Jokioinen Asemakaava</a></li>
+      <li><a href="#/dev-debug/clear-db" ng-click="clearDb()">Tyhjennä tietokanta</a></li>
+      <li>
+        TODO:t näkyvissä:
+        <input type="checkbox" ng-model="todoToggle" ng-change="toggleTodos(todoToggle)" value="todo-toggle" id="todo-toggle" />
+        <label for="todo-toggle"></label>
+      </li>
+      <li><a href="" ng-click="forceWatchProcessing()">Prosessoi vahtimailit</a></li>
+      <li><a href="" ng-click="createRandomUsers(10)">Luo 10 käyttäjää</a></li>
+      <li><a href="" ng-click="createRandomWatches(10)">Luo 10 vahtia</a></li>
+      <li><a href="" ng-click="createRandomWatches(100)">Luo 100 vahtia</a></li>
+      <li><a href="" ng-click="createRandomWatches(1000)">Luo 1000 vahtia</a></li>
+    </ul>
+  </div>

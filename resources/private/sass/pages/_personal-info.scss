@@ -1,0 +1,30 @@
+#subscription-link {
+  color: black;
+}
+
+.personal-info {
+  .push {
+    clear: both;
+  }
+
+  .password-change {
+    width: 300px;
+    border-right: 1px solid darken($color-light-grey, 10%);
+    float: left;
+  }
+
+  .watch-subscriptions {
+    margin:0 auto;
+    float: right;
+
+  }
+  .personal-info-wrapper {
+    max-width: 850px;
+    margin:0 auto 0 $marginL;
+
+    a {
+      color: #FFF;
+    }
+  }
+}
+

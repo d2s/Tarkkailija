@@ -23,6 +23,7 @@ pom.xml
 *.swp
 .metadata
 *.log
+confs
 
 # Compass
 .sass-cache

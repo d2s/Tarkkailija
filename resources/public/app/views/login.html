@@ -1,0 +1,15 @@
+<h1>Kirjaudu sisään Tarkkailijaan</h1>
+
+<form id="login-user-form" name="loginForm" ng-controller="LoginController">
+  <fieldset class="form-entry">
+    <label for="username">Tunnus (email)</label>
+    <span class="error" ng-show="loginForm.firstname.$error.required && !loginForm.firstname.$pristine">pakollinen tieto</span>
+    <input type="text" id="username-login" name="username" ng-model="data.username" required autofocus="autofocus">
+  </fieldset>
+  <fieldset class="form-entry">
+    <label for="password">Salasana</label>
+    <span class="error" ng-show="data.error">salasana ei täsmää</span>
+    <input type="password" id="password-login" name="password" ng-model="data.password" required>
+  </fieldset>
+  <button id="login-submit" ng-disabled="loginForm.$invalid" ng-click="login()" class="btn">Kirjaudu sisään</button>
+</form>

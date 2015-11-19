@@ -1,0 +1,33 @@
+<div class="light-content-area wrapper" ng-init="sent = false">
+  <h1 sade-i18n="feedback.title">Anna palautetta Tarkkailijan kehittäjille</h1>
+
+  <div class="feedback-sent-info" ng-show="sent">
+    <p sade-i18n="feedback.sent">Palautteesi on lähetetty kehitystiimille.</p>
+    <br/>
+    <a href="/" sade-i18n="nav.frontpage.back">Siirry etusivulle</a><br/>
+    <a href="" ng-click="sent = false" sade-i18n="feedback.makeanother">Tee uusi palaute</a>
+  </div>
+
+  <form id="send-feedback-form" name="feedbackForm" ng-hide="sent">
+    <select name="feedbackTypes" ng-model="data.feedbackType" autofocus>
+      <option value="bug" sade-i18n="feedback.type.bug">Virhe sivustolla</option>
+      <option value="improvement" sade-i18n="feedback.type.improvement">Kehitysidea sivuston ominaisuuteen</option>
+      <option value="new-feature" sade-i18n="feedback.type.feature" selected>Uusi ominaisuus</option>
+      <option value="new-site" sade-i18n="feedback.type.site">Uusi sivusto Tarkkailijan seurantaan</option>
+    </select>
+
+    <fieldset class="form-entry">
+      <label for="feedbackReplyAddress" sade-i18n="feedback.replyAddress">Sähköpostiosoite (käytetään ainostaan mikäli yhteydenottoa pyydetty):</label>
+      <input type="email" name="feedbackReplyAddress" ng-model="data.replyAddress" />
+      <span class="error" ng-show="feedbackForm.feedbackReplyAddress.$error.email" sade-i18n="form.error.emailinvalid">Epäkelpo sähköpostiosoite</span>
+    </fieldset>
+    
+    <fieldset class="form-entry">
+      <label for="feedbackTextBox" sade-i18n="feedback.textarea">Palautekenttä:</label>
+      <span class="error" ng-show="feedbackForm.feedbackTextBox.$error.required && !feedbackForm.feedbackTextBox.$pristine" sade-i18n="feedback.error.textrequired">Syötä palautteesi kenttään</span>
+      <textarea name="feedbackTextBox" cols="40" rows="10" placeholder="{{i18n('feedback.textarea.placeholder')}}" ng-model="data.text" required></textarea><br>
+    </fieldset>
+    <button id="submit-feedback-button" ng-disabled="feedbackForm.$invalid " ng-click="sendFeedback()" class="btn btn-primary" sade-i18n="general.send">Lähetä</button>
+  </form>
+
+</div>

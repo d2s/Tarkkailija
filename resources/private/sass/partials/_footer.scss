@@ -1,0 +1,47 @@
+body > footer {
+  @include clearfix;
+  color: lighten($color-text, 40%);
+  background-color: #4E4F4F;
+  font-size:1em;
+  padding: 40px 24px 84px;
+  margin-top: -110px;
+  height: 140px;
+
+  h2 {
+    color: lighten($color-text, 40%);
+    text-transform: uppercase;
+    font-size: 1.3em;
+    width: 100%;
+    border-bottom: 1px solid;
+  }
+
+  h3 {
+    color: lighten($color-text, 40%);
+  }
+
+  a {
+   color:lighten($color-text, 30%);
+  }
+  p {
+    margin:0;
+    color:lighten($color-text, 40%);
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      width: 30%;
+      float: left;
+    }
+  }
+  .fb-like {
+    display: block;
+    padding-top: $marginM;
+    .uiIconText {
+      color:lighten($color-text, 40%);
+    }
+  }
+  .footer-mail-img {
+  }
+}

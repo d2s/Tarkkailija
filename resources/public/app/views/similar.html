@@ -1,0 +1,85 @@
+<div ng-controller="SimilarArticlesController" class="wrapper similar-articles">
+
+  <aside class="search-options">
+    <button class="btn slim areaButton back" ng-disabled="!showBackButton" ng-click="backToWatch()" sade-i18n="articles.similar.backToResults">Takaisin vahdin tuloksiin</button>
+
+    <header>
+      <span ng-hide="selectedArticleLoading">{{selectedArticle.headline}}</span>
+      <span ng-show="selectedArticleLoading" sade-i18n="general.loading">Ladataan...</span>
+    </header>
+
+    <div class="img-cutout" ng-hide="selectedArticleLoading">
+      <img src="{{selectedArticle.picture}}" alt="{{selectedArticle.headline}}" />
+    </div>
+
+    <section>
+      <div ng-show="selectedArticleLoading" class="ajax-loader">
+        <img src="/app/img/ajax-loader-big-white-bg.gif" alt="{{i18n('general.loading')}}">
+      </div>
+
+      <div ng-hide="selectedArticleLoading">
+        <time class="selected-article-date" datetime="{{selectedArticle.date | date:'yyyy-MM-dd'}}">{{selectedArticle.date | date:'dd.MM.yyyy'}}</time>
+        <h5 class="selected-article-source"><span class="icon-small house inline-left "></span> {{selectedArticle.sourcename}}</h5>
+
+        <blockquote>{{selectedArticle.description}}</blockquote>
+
+        <button class="btn slim areaButton" onclick="window.open('{{selectedArticle.link}}', '_blank')" sade-i18n="articles.results.show">Näytä artikkeli</button>
+      </div>
+    </section>
+  </aside>
+
+  <div class="content">
+    <div class="results-header" sade-sticky="10">
+      <h2>
+        <form class="time-select">
+          {{i18n('articles.similar.fromtimeframe')}}:
+          <select ng-model="timeRange" ng-change="changeTimeStart()">
+            <option ng-repeat="val in timeRangeValues" value="{{val.value}}" ng-selected="timeRange == val.value">{{val.label}}</option>
+          </select>
+        </form>
+
+        <span class="watch-info"><span class="icon flash-light inline-left"></span>{{i18n('articles.similar.showing')}}</span>
+        <p class="selected-article-name">"{{selectedArticle.headline}}"</p>
+        <p ng-show="searchLoading" class="load-indicator"><span sade-i18n="general.loading">Ladataan...</span> <span class="ajax-loader dark"></span></p>
+        <p ng-hide="searchLoading" class="load-indicator" id="searchResultDescription">{{i18n('articles.results.resultsfound', totalresults, shownArticlesCount)}}</p>
+      </h2>
+    </div>
+
+    <p ng-show="totalresults == 0 && !searchLoading" class="results-empty-text" sade-i18n="articles.results.noresults">Määrittelemilläsi hakuehdoilla ei löydetty tuloksia. Ole hyvä ja muuta hakuehtoja</p>
+
+    <div class="time-range" ng-repeat="range in ranges">
+      <div ng-repeat="(date, articles) in range" class="articlegroup">
+        <time datetime="{{date | date:'yyyy-MM-dd'}}" sade-sticky="{offset: 150, context: 'similar-article-group-end-' + date}" class="grouptime"><span>{{formatDate(date)}}</span></time>
+        <article class="result" ng-repeat="article in articles">
+          <div class="unavailable-mask" ng-show="searchLoading"></div>
+          <a href="{{article.link}}" target="_blank" title="{{i18n('articles.results.show')}}">
+            <div class="img-cutout">
+              <img ng-src="{{article.picture}}" alt="{{article.headline}}"/>
+            </div>
+            <h5><span class="icon-small house inline-left "></span>{{article.sourcename}}</h5>
+            <time datetime="{{article.date | date:'yyyy-MM-dd'}}">{{article.date | date:'dd.MM.yyyy'}}</time>
+            <h4>{{article.headline}}</h4>
+            <blockquote>{{article.description}}</blockquote>
+            <div class="addthis_toolbox addthis_default_style addthis_32x32_style result-actions" addthis:url="{{article.link}}">
+              <div class="shares">
+                <a class="addthis_button_twitter"></a>
+                <a class="addthis_button_facebook"></a>
+                <a class="addthis_button_linkedin"></a>
+                <a class="addthis_button_google_plusone_badge" g:plusone:size="medium"></a>
+                <a class="addthis_button_gmail"></a>
+                <a class="addthis_button_email"></a>
+                <a class="addthis_counter addthis_bubble_style"></a>
+                <div class="arrow-right"></div>
+              </div>
+
+              <ul class="share-link">
+                <li><a href="#/similar?articleId={{article.id}}" title={{i18n('articles.similar.show')}}><span class="icon flash-light-dark"></span></a></li>
+                <li><a href="" title={{i18n('articles.share')}} share><span class="icon share"></span></a></li>
+              </ul>
+          </a>
+        </article>
+        <span id="similar-article-group-end-{{date}}"></span>
+      </div>
+    </div>
+  </div>
+</div>

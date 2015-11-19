@@ -1,0 +1,11 @@
+<div class="wrapper" ng-controller="InfoController">
+  <ul class="tabs">
+    <li ng-class="{active: infoPage == 'help'}"><a href="#/info" sade-i18n="info.pagetitle">Ohjeet</a></li>
+    <li ng-class="{active: infoPage == 'faq'}"><a href="#/info/faq" sade-i18n="info.faq.pagetitle">Usein kysytyt kysymykset</a></li>
+    <li ng-class="{active: infoPage == 'reports'}"><a href="#/info/reports" sade-i18n="info.reports.pagetitle">Tilastoja</a></li>
+    <li ng-class="{active: infoPage == 'sources'}"><a href="#/info/sources" sade-i18n="info.sources.pagetitle">Tietolähteet</a></li>
+    <li ng-class="{active: infoPage == 'terms'}"><a href="#/info/terms" sade-i18n="info.terms.pagetitle">Käyttöehdot</a></li>
+  </ul>
+  
+  <div ng-include="'/app/views/' + infoPage + '.html'" class="light-content-area"></div>
+</div>

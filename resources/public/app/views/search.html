@@ -1,0 +1,210 @@
+<div class="wrapper">
+  <aside class="search-options">
+    <p class="register-info" ng-hide="isLogged()"><span sade-i18n="resultspage.register.info"></span> <a href="#/register" id="search-register-link" sade-i18n="resultspage.register.link"></a></p>
+    <button class="btn aside-large" ng-click="newWatchClicked()" ng-show="isLogged()"><span class="icon-small add-white"></span><span sade-i18n="watch.new" class="button-text">Uusi vahti</span></button>
+    <button class="btn green aside-large" id="save-watch" ng-show="isLogged()" ng-click="saveWatchConfirmation=true"><span class="icon-small accept inline-left"></span><span sade-i18n="general.SAVE">TALLENNA</span></button>
+    <button class="btn aside-large" id="save-delete" ng-show="isSavedWatch()" ng-click="deleteConfirmation = true"><span class="icon-small close-white inline-left"></span> <span sade-i18n="watch.remove"></span></button>
+    <div sade-dialog ng-model="saveWatchConfirmation" class="confirmationDialog">
+      <header sade-i18n="watch.save.dialog.topic">Nimeä tallennettava vahti</header>
+      <section>
+       <label for="watch-name-input" ng-hide="!isLogged() || (isSavedWatch() && !isOwnWatch())">{{i18n('watch.nameof')}}</label></br>
+       <input type="text" placeholder="{{i18n('watch.setname')}}" class="name" ng-model="watchName" ng-change="setWatchName();" id="watch-name-input" maxlength="25" ng-hide="!isLogged() || (isSavedWatch() && !isOwnWatch())" />
+      </section>
+      <footer>
+        <button id="watch-recreate-cancel" class="btn slim" ng-click="saveWatchConfirmation=false"><span class="icon-small close-white inline-left"></span><span sade-i18n="general.cancel">Peruuta</span></button>
+        <button id="watch-recreate-confirm" class="btn slim green" ng-click="saveWatch(); saveWatchConfirmation=false"><span class="icon-small accept inline-left"></span><span sade-i18n="general.SAVE">Tallenna</span></button>
+      </footer>
+    </div>
+    <div sade-dialog ng-model="newWatchConfirmation" class="confirmationDialog">
+      <header sade-i18n="general.areyousure">Oletko varma?</header>
+      <section>
+        <p sade-i18n="watch.new.watch.confirmation">Uutta vahtia luotaessa jo syöttämäsi hakuehdot tyhjennetään. Oletko varma, että haluat jatkaa?</p>
+      </section>
+      <footer>
+        <button id="watch-recreate-cancel" class="btn slim" ng-click="newWatchConfirmation=false"><span class="icon-small close-white inline-left"></span><span sade-i18n="general.cancel">Peruuta</span></button>
+        <button id="watch-recreate-confirm" class="btn slim green" ng-click="resetWatch(); newWatchConfirmation=false"><span class="icon-small accept inline-left"></span><span sade-i18n="watch.new">Uusi vahti</span></button>
+      </footer>
+    </div>
+    <div sade-dialog ng-model="deleteConfirmation" class="confirmationDialog">
+      <header sade-i18n="general.areyousure">Oletko varma?</header>
+      <section>
+        <p sade-i18n="watch.remove.confirmation">Oletko varma, että haluat poistaa vahdin?</p>
+      </section>
+      <footer>
+        <button id="watch-delete-cancel" class="btn slim" ng-click="deleteConfirmation=false"><span class="icon-small close-white inline-left"></span><span sade-i18n="general.cancel">Peruuta</span></button>
+        <button id="watch-delete-confirm" class="btn slim red" ng-click="deleteActiveWatch(); deleteConfirmation=false"><span class="icon-small accept inline-left"></span><span sade-i18n="general.remove">Poista</span></button>
+      </footer>
+    </div>
+    <header ng-show="isLogged()" ng-init="initEmailAddress = user.email; subscribeEmailEdit = false; loginForWatchSubscribe = false" class="aside-section">
+
+
+     <div class="subscriptionPane" id="subscriptionSelectionPane" ng-show="isLogged() && isSavedWatch() && !subscribeEmailEdit && !loginForWatchSubscribe">
+       <h4 sade-i18n="watch.subscribe">Tilaa vahti</h4>
+       <a ng-href="{{rssLink()}}"><span class="icon-large rss"></span>RSS</a>
+       <a ng-show="!isSubscribed()" ng-click="subscribeEmailEdit = true"><span class="icon-large email"></span><span sade-i18n="watch.subscribe.toemail">Sähköpostiin</span></a>
+       <a ng-show="isSubscribed()" ng-click="removeSubscribeEmail()"><span class="icon-large email"></span><span sade-i18n="watch.subscribe.cancel">Peruuta tilaus</span></a>
+     </div>
+
+     <div class="subscriptionPane subscribe" ng-show="subscribeEmailEdit && !loginForWatchSubscribe">
+       <form ng-init="subscription.email = user.email; subscription.lang = lang" ng-submit="subscribeEmailEdit = false">
+         <h4 sade-i18n="watch.subscribe.description">Tilaa vahdin ilmoitukset sähköpostiisi</h4>
+         <input type="email" value="{{initEmailAddress}}" class="subscribe-email" ng-model="subscription.email" id="watch-subscribe-email-input" />
+         <div class="subscription-language" ng-show="configuration.langs.length > 1">
+           <label>Suomeksi<input type="radio" ng-model="subscription.lang" value="fi" ng-checked="lang == 'fi'" /></label>
+           <label>På svenska<input type="radio" ng-model="subscription.lang" value="sv" ng-checked="lang == 'sv'" /></label>
+         </div>
+         <button class="btn slim" ng-click="subscribeEmailEdit = false"><span class="icon-small close-white inline-left"></span><span sade-i18n="general.cancel">Peruuta</span></button>
+         <button type="submit" class="btn slim green" ng-disabled="!subscription.email" ng-click="setSubscribeEmail(); subscribeEmailEdit = false"><span class="icon-small accept inline-left"></span><span sade-i18n="general.subscribe">Tilaa</span></button>
+       </form>
+     </div>
+
+     <div class="radio-options" ng-hide="!isLogged() || (isSavedWatch() && !isOwnWatch())">
+       <h4 sade-i18n="watch.visibility">Vahdin näkyvyys</h4>
+       <form id="watch-publicity">
+         {{i18n('watch.visibility.public')}} <input type="radio" name="watch-publicity" value="public" ng-checked="isPublic()" ng-click="makePublic()" />
+         {{i18n('watch.visibility.private')}} <input type="radio" name="watch-publicity" value="private" ng-checked="!isPublic()" ng-click="makePrivate()" />
+       </form>
+     </div>
+   </header>
+
+   <section ng-init="addingNewArea = false" class="aside-section">
+     <h4 class="search-options-title"></span><span sade-i18n="article.areas">Tiedotteiden aluevalinnat</span></h4>
+     <ul class="chosen-area-list">
+       <li ng-repeat="area in areas()"><a ng-click="removeArea(area.id, false)">{{area.name}}<span class="icon-small close-white inline-right"></span></a></li>
+     </ul>
+
+     <form ng-init="newWatchArea = ''">
+       <label class="form-label" sade-i18n="article.areas.addnew" for="newAreaInput">Lisää uusi alue</label>
+       <sade-autocomplete id="newAreaInput" class="new-area-name" ng-model="newWatchArea" placeholder="{{i18n('article.areas.typename')}}" source="'/api/areas-with-term'" select-event="addWatchArea"></sade-autocomplete>
+     </form>
+     <button ng-disabled="showMap" class="btn slim areaButton" ng-click="showMap=true"></span><span sade-i18n="articles.areas.mapbuttontext">Valitse alueet kartalta</span></button>
+
+     <div id="resultpage-map-dialog" class="map-dialog" sade-dialog="resize" ng-model="showMap">
+       <header sade-i18n="map.tools.selectareatitle">Rajaa alue kartalta</header>
+       <section class="map-dialog-section">
+         <div class="map-selected-areas">
+           <header><span sade-i18n="map.selectedAreas">Valitut alueet</span> <span class="ajax-loader dark" ng-show="mapAreaSearchInProgress"></span></header>
+           <section>
+             <p ng-show="mapSelectedAreas.length == 0" sade-i18n="map.selectedAreas.none">Ei alueita valittuna</p>
+             <ul class="area-list" ng-hide="mapSelectedAreas.length == 0">
+               <li ng-repeat="area in mapSelectedAreas"><a ng-click="removeArea(area.value, true)" title="{{i18n('general.remove')}}">{{area.label}}<span class="icon-small close-white inline-right"></span></a></li>
+             </ul>
+           </section>
+         </div>
+         <div id="resultpage-map" class="map" ng-show="showMap" sade-window-scale="{verticalMargin: 235, horizontalMargin: 500}">
+           <div class="controlToggle">
+             <header sade-i18n="map.tools.selectiontools">Aluevalintatyökalut</header>
+             <ul>
+               <li><button title="{{i18n('map.tools.title.clearselection')}}" class="btn" ng-click="clearMapDrawings()" ng-disabled="mapAreaSearchInProgress || searchLoading" sade-i18n="general.clear">Tyhjennä</button></li>
+               <li><button title="{{i18n('map.tools.title.selectarea')}}" class="btn {{controlSelectedClass('box')}}" ng-click="toggleActiveMapControl('box')" sade-i18n="map.tools.selectarea">Valitse alue</button></li>
+               <li><button title="{{i18n('map.tools.title.movemap')}}" class="btn {{controlSelectedClass('none')}}" ng-click="toggleActiveMapControl('none')" sade-i18n="map.tools.movemap">Liikuta karttaa</button></li>
+             </ul>
+           </div>
+         </div>
+       </section>
+       <footer>
+         <button class="btn" ng-click="cancelMapSelection(); showMap=false">{{i18n('general.cancel')}}</button>
+         <button class="btn green" ng-click="acceptMapSelection(); showMap=false">{{i18n('map.button.acceptselection')}}</button>
+       </footer>
+     </div>
+   </section>
+   <section class="aside-section">
+     <h4 class="search-options-title"><span sade-i18n="article.categories">Tiedotteiden aihealueet</span></h4>
+     <ul>
+       <li ng-repeat="category in categories">
+         <input type="checkbox" id="search-category-{{category}}" ng-click="toggleCategory(category)" ng-checked="isSelected(category)" />
+         <label for="search-category-{{category}}" ng-checked="isSelected(category)">{{category.name}}</label>
+
+       </li>
+     </ul>
+
+     <form ng-init="newCategory = ''">
+       <Label class="form-label" sade-i18n="article.categories.addnew" for="newCategoryInput">Lisää uusi aihealue</label>
+       <sade-autocomplete class="new-area-name"  ng-model="newCategory" placeholder="{{i18n('article.categories.typename')}}" source="'/api/categories'" select-event="addWatchCategory" id="newCategoryInput"></sade-autocomplete>
+     </form>
+   </section>
+  </aside>
+
+  <div class="content" ng-show="isTabVisible('text')">
+    <div class="results-header" sade-sticky="10">
+      <h2>
+        <span class="watch-info"><span class="icon looking-glass-white inline-left"></span><span id="watch-name">{{getWatchNameForTitle()}}</span></span>
+        <button class="btn slim" ng-disabled="searchLoading || isTabVisible('text')" ng-click="showTab('text')"><span class="icon-small list"></span><span sade-i18n="general.aslist">Listana</span></button>
+        <button class="btn slim" ng-disabled="searchLoading || isTabVisible('map')" ng-click="showTab('map')"><span class="icon-small compass"></span><span sade-i18n="general.onmap">Kartalla</span></button>
+      </h2>
+
+      <form class="time-select">
+        {{i18n('articles.fromtimeframe')}}:
+        <select ng-model="timeRange" ng-change="changeTimeStart()">
+          <option ng-repeat="val in timeRangeValues" value="{{val.value}}" ng-selected="timeRange == val.value">{{val.label}}</option>
+        </select>
+      </form>
+
+      <p ng-show="searchLoading"><span sade-i18n="general.loading">Ladataan...</span> <span class="ajax-loader dark"></span></p>
+      <p ng-hide="searchLoading" id="searchResultDescription">{{i18n('articles.results.resultsfound', totalresults, articles.length)}}</p>
+    </div>
+
+    <p ng-show="totalresults == 0 && !searchLoading" class="results-empty-text" sade-i18n="articles.results.noresults">Määrittelemilläsi hakuehdoilla ei löydetty tuloksia. Ole hyvä ja muuta hakuehtoja</p>
+    <p ng-show="totalresults == 0 && searchLoading" class="results-empty-text" sade-i18n="articles.results.search-ongoing">Odota hetki, haku käynnissä</p>
+
+    <article class="result" ng-repeat="article in articles" addthis="article">
+      <div class="unavailable-mask" ng-show="searchLoading"></div>
+      <a href="{{article.link}}" target="_blank" title="{{i18n('articles.results.show')}}">
+        <div class="img-cutout">
+          <img ng-src="{{article.picture}}" alt="{{article.headline}}"/>
+        </div>
+        <h5><span class="icon-small house inline-left "></span>{{article.sourcename}}</h5>
+<!--         <time datetime="{{article.date}}">{{article.date | date:'dd.MM.yyyy'}}</time> -->
+        <time datetime="{{article.date | date:'yyyy-MM-dd'}}">{{article.date | date:'dd.MM.yyyy'}}</time>
+        <h4>{{article.headline}}</h4>
+        <blockquote>{{article.description}}</blockquote>
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style result-actions" addthis:url="{{article.link}}">
+          <div class="shares">
+            <a class="addthis_button_twitter"></a>
+            <a class="addthis_button_facebook"></a>
+            <a class="addthis_button_linkedin"></a>
+            <a class="addthis_button_google_plusone_badge" g:plusone:size="medium"></a>
+            <a class="addthis_button_gmail"></a>
+            <a class="addthis_button_email"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+            <div class="arrow-right"></div>
+          </div>
+
+          <ul class="share-link">
+            <li><a href="#/similar?articleId={{article.id}}" title={{i18n('articles.similar.show')}}><span class="icon flash-light-dark"></span></a></li>
+            <li><a href="" title={{i18n('articles.share')}} share><span class="icon share"></span></a></li>
+          </ul>
+        </div>
+      </a>
+    </article>
+
+    <button id="moreArticlesButton" class="btn" ng-click="getNextPageful()" ng-disabled="searchLoading"
+            ng-hide="!isTabVisible('text') || articles.length == 0 || totalresults < articlesOnAPage || limit >= totalresults">
+      <div ng-show="searchLoading"><span class="ajax-loader dark"></span></div>
+      <div ng-hide="searchLoading" sade-i18n="articles.results.showmore">Näytä lisää artikkeleja...</div>
+    </button>
+  </div>
+
+  <div class="content" ng-show="isTabVisible('map')">
+
+    <div class="results-header">
+      <h2>
+        <span class="watch-info"><span class="icon looking-glass-white inline-left"></span>{{getWatchNameForTitle()}}</span>
+        <button class="btn slim" ng-disabled="searchLoading || isTabVisible('text')" ng-click="showTab('text')"><span class="icon-small list"></span><span sade-i18n="general.aslist">Listana</span></button>
+        <button class="btn slim" ng-disabled="searchLoading || isTabVisible('map')" ng-click="showTab('map')"><span class="icon-small compass"></span><span sade-i18n="general.onmap">Kartalla</span></button>
+      </h2>
+
+      <form class="time-select">
+        {{i18n('articles.fromtimeframe')}}:
+        <select ng-model="timeRange" ng-change="changeTimeStart()">
+          <option ng-repeat="val in timeRangeValues" value="{{val.value}}" ng-selected="timeRange == val.value">{{val.label}}</option>
+        </select>
+      </form>
+
+      <p ng-show="searchLoading"><span sade-i18n="general.loading">Ladataan...</span> <span class="ajax-loader dark"></span></p>
+      <p ng-hide="searchLoading" id="searchResultDescription">{{i18n('articles.results.resultsfound', totalresults, articles.length)}}</p>
+    </div>
+
+    <div id="search-map" class="map" ng-show="isTabVisible('map')" ></div>
+  </div>
+</div>

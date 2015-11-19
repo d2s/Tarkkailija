@@ -1,0 +1,41 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|Open+Sans);
+
+body {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 12pt;
+  line-height: $baseline;
+  color: black;
+}
+
+p {
+  margin-bottom: $baseline;
+  line-height: $baseline;
+}
+
+i {
+  color: #616161;
+  margin-bottom: $baseline;
+  line-height: $baseline;
+}
+
+h1 {
+  color: $brand-color-main;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: normal;
+  font-size: $baseline;
+  line-height: $baseline *2;
+  margin-bottom: $baseline;
+}
+
+h2 {
+  font-family: 'PT Sans', sans-serif;
+  color: $brand-color-main;
+  margin-bottom: $baseline;
+}
+
+h3 {
+  font-family: 'PT Sans', sans-serif;
+  color: $brand-color-main;
+  font-weight: 400;
+  margin-bottom: $marginS;
+}

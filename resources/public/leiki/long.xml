@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rsp stat="ok" totalresults="706"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="rest.xsd">
+  <item id="http://www.jokioinen.fi/en/leisure_activities/library"
+    rel="13" pop="0">
+    <headline>Library</headline>
+    <description> 
+      Keskuskatu 27 31600 Jokioinen tel. +358 3 4182 7420
+      jokioisten.kirjasto(at)jokioinen.fi Due to
+    </description>
+    <feed id="solita_testi">Solita TEST</feed>
+    <link>http://www.jokioinen.fi/en/leisure_activities/library</link>
+    <date>2013-01-21T11:47:43</date>
+    <tags>
+      <tag name="sys_f_location_present">
+        <value>true</value>
+      </tag>
+      <tag name="sys_f_lang">
+        <value>en</value>
+      </tag>
+      <tag name="sys_f_location_point">
+        <value>306959.0 6750586.0</value>
+        <value>306960.0 6750587.0</value>
+        <value>0.0 0.0</value>
+      </tag>
+      <tag name="article_type">
+        <value>article</value>
+      </tag>
+    </tags>
+    <sourcename>Jokioinen</sourcename>
+  </item>
+  <item id="http://www.jokioinen.fi/en/sights/the_jokioinen_estate"
+    rel="13" pop="0">
+    <headline>The Jokioinen Estate</headline>
+    <description>The history of Jokioinen is, for the most part,
+      synonymous with the history of the Jokioinen Estate.</description>
+    <feed id="solita_testi">Solita TEST</feed>
+    <link>http://www.jokioinen.fi/en/sights/the_jokioinen_estate</link>
+    <date>2013-01-21T11:47:42</date>
+    <tags>
+      <tag name="sys_f_location_present">
+        <value>true</value>
+      </tag>
+      <tag name="sys_f_lang">
+        <value>en</value>
+      </tag>
+      <tag name="sys_f_location_point">
+        <value>306959.0 6750586.0</value>
+      </tag>
+      <tag name="article_type">
+        <value>article</value>
+      </tag>
+      <tag name="sys_f_enclosure_url">
+        <value>http://www.jokioinen.fi/en/Sights/Kartano%20v.jpg</value>
+      </tag>
+      <tag name="sys_f_enclosure_present">
+        <value>true</value>
+      </tag>
+    </tags>
+    <sourcename>Jokioinen</sourcename>
+  </item>
+  <item id="http://www.jokioinen.fi/fi/harrastajat/seurakunta/tyontekijat"
+    rel="13" pop="0">
+    <headline>Työntekijät</headline>
+    <description>Sähköposti: etunimi.sukunimi@evl.fi
+      KIRKKOHERRANVIRASTO avoinna ma-pe klo 8.30-12.00 Koulutie 5 A
+    </description>
+    <feed id="solita_testi">Solita TEST</feed>
+    <link>http://www.jokioinen.fi/fi/harrastajat/seurakunta/tyontekijat</link>
+    <date>2013-01-21T11:46:21</date>
+    <tags>
+      <tag name="sys_f_location_present">
+        <value>true</value>
+      </tag>
+      <tag name="sys_f_lang">
+        <value>en</value>
+      </tag>
+      <tag name="sys_f_location_point">
+        <value>306959.0 6750586.0</value>
+      </tag>
+      <tag name="article_type">
+        <value>frontpage</value>
+      </tag>
+    </tags>
+    <sourcename>Jokioinen</sourcename>
+  </item>
+  <item
+    id="http://www.jokioinen.fi/en/leisure_activities/library/contact_details"
+    rel="12" pop="0">
+    <headline>Contact Details</headline>
+    <description>The Library and the Staff
+      Jokioinen Municipal Library Keskuskatu 27 31600 JOKIOINEN Due to the curr</description>
+    <feed id="solita_testi">Solita TEST</feed>
+    <link>http://www.jokioinen.fi/en/leisure_activities/library/contact_details</link>
+    <date>2013-01-21T11:48:01</date>
+    <tags>
+      <tag name="sys_f_location_present">
+        <value>true</value>
+      </tag>
+      <tag name="sys_f_lang">
+        <value>en</value>
+      </tag>
+      <tag name="sys_f_location_point">
+        <value>306959.0 6750586.0</value>
+      </tag>
+      <tag name="article_type">
+        <value>article</value>
+      </tag>
+    </tags>
+    <sourcename>Jokioinen</sourcename>
+  </item>
+  <item
+    id="http://www.jokioinen.fi/fi/Aineistopankki/Lomakkeet/KTTseurantalomake.pdf"
+    rel="12" pop="0">
+    <headline>Jokioisten kunta</headline>
+    <description>JOKIOISTEN KUNTA
+
+      Kuntouttavan työtoiminnan
+      toteutumisen seurantalomake
+
+      Asiakkaan nim</description>
+    <feed id="solita_testi">Solita TEST</feed>
+    <link>http://www.jokioinen.fi/fi/Aineistopankki/Lomakkeet/KTTseurantalomake.pdf</link>
+    <date>2012-07-11T14:41:36</date>
+    <tags>
+      <tag name="sys_f_location_present">
+        <value>true</value>
+      </tag>
+      <tag name="sys_f_lang">
+        <value>fi</value>
+      </tag>
+      <tag name="sys_f_location_point">
+        <value>306959.0 6750586.0</value>
+      </tag>
+      <tag name="article_type">
+        <value>document</value>
+      </tag>
+    </tags>
+    <sourcename>Jokioinen</sourcename>
+  </item>
+  <item
+    id="http://www.jokioinen.fi/fi/Galleria_Kirjonta/Forms/DispForm.aspx?ID=9"
+    rel="12" pop="0">
+    <headline>Galleria_Kirjonta</headline>
+    <description>To navigate through the Ribbon, use standard browser
+      navigation keys. To skip between groups, use Ct</description>
+    <feed id="solita_testi">Solita TEST</feed>
+    <link>http://www.jokioinen.fi/fi/Galleria_Kirjonta/Forms/DispForm.aspx?ID=9</link>
+    <date>2013-01-21T11:47:18</date>
+    <tags>
+      <tag name="sys_f_location_present">
+        <value>true</value>
+      </tag>
+      <tag name="sys_f_lang">
+        <value>en</value>
+      </tag>
+      <tag name="sys_f_location_point">
+        <value>306959.0 6750586.0</value>
+      </tag>
+      <tag name="article_type">
+        <value>frontpage</value>
+      </tag>
+    </tags>
+    <sourcename>Jokioinen</sourcename>
+  </item>
+  <item id="http://www.jokioinen.fi/fi/harrastajat/seurakunta/toiminta"
+    rel="12" pop="0">
+    <headline>Toiminta</headline>
+    <description>JOKIOISTEN SEURAKUNNAN KAUSIOHJELMA 2013 ilmestyy
+      loppukuusta</description>
+    <feed id="solita_testi">Solita TEST</feed>
+    <link>http://www.jokioinen.fi/fi/harrastajat/seurakunta/toiminta</link>
+    <date>2013-01-21T11:46:20</date>
+    <tags>
+      <tag name="sys_f_location_present">
+        <value>true</value>
+      </tag>
+      <tag name="sys_f_lang">
+        <value>fi</value>
+      </tag>
+      <tag name="sys_f_location_point">
+        <value>306959.0 6750586.0</value>
+      </tag>
+      <tag name="article_type">
+        <value>form</value>
+      </tag>
+    </tags>
+    <sourcename>Jokioinen</sourcename>
+  </item>
+  <item
+    id="http://www.jokioinen.fi/fi/matkailijat/tutustumiskohteet/muistomerkit"
+    rel="12" pop="0">
+    <headline>Muistomerkit</headline>
+    <description>Lausuntataiteilija Helinä Svensson-Timarin muistomerkki
+      Toukokuun 3. päivänä 1998 paljastettiin Jo</description>
+    <feed id="solita_testi">Solita TEST</feed>
+    <link>http://www.jokioinen.fi/fi/matkailijat/tutustumiskohteet/muistomerkit</link>
+    <date>2013-01-14T09:25:11</date>
+    <tags>
+      <tag name="sys_f_location_present">
+        <value>true</value>
+      </tag>
+      <tag name="sys_f_lang">
+        <value>en</value>
+      </tag>
+      <tag name="sys_f_location_point">
+        <value>306959.0 6750586.0</value>
+      </tag>
+      <tag name="article_type">
+        <value>article</value>
+      </tag>
+    </tags>
+    <sourcename>Jokioinen</sourcename>
+  </item>
+  <item id="http://www.jokioinen.fi/fi/harrastajat/jarjestot/kuorot"
+    rel="12" pop="0">
+    <headline>Kuorot</headline>
+    <description>JOKIOISTEN KIRKKOKUORO R.Y. Pj. Piritta Anttila p. 040
+      5870 314 piritta.anttila(at)arbopiritta.com s</description>
+    <feed id="solita_testi">Solita TEST</feed>
+    <link>http://www.jokioinen.fi/fi/harrastajat/jarjestot/kuorot</link>
+    <date>2013-01-14T09:25:00</date>
+    <tags>
+      <tag name="sys_f_location_present">
+        <value>true</value>
+      </tag>
+      <tag name="sys_f_lang">
+        <value>en</value>
+      </tag>
+      <tag name="sys_f_location_point">
+        <value>306959.0 6750586.0</value>
+      </tag>
+      <tag name="article_type">
+        <value>form</value>
+      </tag>
+    </tags>
+    <sourcename>Jokioinen</sourcename>
+  </item>
+  <item
+    id="http://www.jokioinen.fi/fi/harrastajat/jarjestot/elakelaisjarjestot"
+    rel="12" pop="0">
+    <headline>Eläkeläisjärjestöt</headline>
+    <description>JOKIOISTEN ELÄKKEENSAAJAT R.Y. pj. Terttu Ali-Jaakkola
+      Koulutie 5 C 18, 31600 Jokioinen p. (03) 438</description>
+    <feed id="solita_testi">Solita TEST</feed>
+    <link>http://www.jokioinen.fi/fi/harrastajat/jarjestot/elakelaisjarjestot</link>
+    <date>2013-01-14T09:24:59</date>
+    <tags>
+      <tag name="sys_f_location_present">
+        <value>true</value>
+      </tag>
+      <tag name="sys_f_lang">
+        <value>en</value>
+      </tag>
+      <tag name="sys_f_location_point">
+        <value>306959.0 6750586.0</value>
+      </tag>
+      <tag name="article_type">
+        <value>article</value>
+      </tag>
+    </tags>
+    <sourcename>Jokioinen</sourcename>
+  </item>
+</rsp>

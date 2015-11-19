@@ -1,0 +1,460 @@
+.search {
+  width: 90%;
+  float: right;
+}
+
+.result {
+  position: relative; // to make child absolute positioning work
+  background-color: white;
+  overflow: hidden;
+  word-wrap: break-word;
+  margin: 0 $marginS $marginS*3 $marginS;
+  width: 100%;
+  height: 200px;
+
+  .unavailable-mask {
+    opacity: 0.2;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  h1,h2,h3,h4,h5,p,blockquote {
+    margin-left: 180px;
+    margin-right: 20px;
+  }
+  h5 {
+    margin-top: 5px;
+
+    span.icon-small {
+      // yes, important is ugly but in this case we really want to override the original value from icons
+      margin-top: 4px !important;
+    }
+  }
+  .img-cutout {
+    width: 160px;
+    overflow: hidden;
+    float: left;
+
+    img {
+      height: 200px;
+      -ms-interpolation-mode: bicubic;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  > a {
+    color: $color-text;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
+  &:hover {
+      top: -3px;
+      @include box-shadow(0px 20px 20px -10px rgba(0, 0, 0, 0.8));
+      left: -1px;
+    }
+  p {
+    float: left;
+    margin-bottom: 0;
+    width: 50%;
+  }
+  blockquote p {
+    float: left;
+    margin-bottom: 0;
+    width: 80%;
+  }
+
+  time {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 0.7em;
+    color: $color-text;
+  }
+}
+
+.result-actions {
+  list-style: none;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  li {
+    float: left;
+    display: inline-block;
+    height: 30px;
+    margin-left: 10px;
+  }
+
+  .like {
+    cursor: pointer;
+    vertical-align: top;
+    display: inline-block;
+    color: #B1B1B1;
+
+    .liking {
+      margin-right: 3px;
+    }
+  }
+
+  .share-link {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 60px;
+  }
+
+  .share {
+    margin-top: 4px;
+  }
+
+  .shares {
+    display: none; // initial state
+    @include blue-gradient;
+    height: 35px;
+    padding: 10px;
+    @include border-radius(10px);
+    position: relative;
+    top: 0px;
+    right: 35px;
+    @include box-shadow(-2px 5px 8px rgba(0, 0, 0, 0.5));
+    z-index: 10;
+
+    .arrow-right {
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid #34c2ef;
+      position: absolute;
+      right: -10px;
+      top: 25px;
+    }
+  }
+
+  .article-link-icon {
+    margin-top: 3px;
+  }
+}
+
+.results-header {
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+
+  h2 {
+    display: inline;
+    color: invert($color-text);
+
+    button {
+      float: right;
+      margin-right: 10px;
+    }
+
+    .watch-info {
+
+    }
+  }
+
+  p {
+    font-size: 1.05em;
+    color: invert($color-text);
+    margin-bottom: 12px;
+    float: left;
+    margin-top: -10px;
+    width: 90%;
+  }
+
+  .btn-primary.inline {
+    display: inline;
+    float: right;
+  }
+  .tabs-container {
+    display: inline;
+    width: 40%;
+  }
+  ul {
+    display: inline;
+  }
+  .time-select {
+    display: block;
+    margin-right: 20px;
+    margin-top: 3px;
+    color: invert($color-text);
+    float: right;
+
+    select {
+      margin-left: 10px;
+    }
+  }
+
+  &.stuck {
+    background-color: $brand-color-alt-light1;
+    @include box-shadow(0px 15px 20px -8px rgba(0, 0, 0, 0.6));
+
+    h2, .time-select, p {
+      color: white;
+    }
+
+    .ajax-loader {
+      @include blue-ajax-loader-bg;
+    }
+  }
+
+  .ajax-loader {
+    margin-left: 2em;
+  }
+}
+
+
+aside.search-options {
+  float: right;
+  width: 280px;
+  margin-bottom: 36px;
+
+  .confirmationDialog {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .register-info {
+   color: invert($color-text);
+
+   a:link {color:invert($color-text);}
+   a:visited {color:invert($color-text);}
+   a:hover {color:invert($color-text);}
+   a:active {color:invert($color-text);}
+  }
+
+  header {
+    color: #CCC;
+
+    .name {
+      width: 200px;
+    }
+
+    .name-edit {
+      float: right;
+    }
+
+    #watch-name {
+      max-width: 165px;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .subscribe-email {
+      width: 95%;
+      padding: 0.3125em;
+    }
+
+    .radio-options, .subscriptionPane {
+      color: #FFF;
+      margin-left: -15px;
+      margin-right: -15px;
+      margin-top: 5px;
+      padding-left: 15px;
+      padding-right: 15px;
+
+      &:nth-child(1) {
+        border-top: none;
+        padding-top: 2px;
+      }
+      a {
+        display: inline-block;
+        margin-top: 12px;
+        text-decoration: none;
+        color: white;
+
+        .icon-large {
+          margin-left: 15px;
+          margin-right: 0px;
+          float: left;
+        }
+      }
+      &.icons {
+        text-align: center;
+      }
+
+      &.subscribe {
+        text-align: center;
+
+        h4 {
+          text-align: left;
+        }
+
+        .subscription-language {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .buttons {
+      padding-top: 5px;
+      text-align: center;
+      a span {
+        margin-top: -38px;
+      }
+
+
+    }
+
+    #watch-publicity {
+      margin-left: 1.2em;
+    }
+  }
+
+  section {
+    background-color: $brand-color-alt-light2;
+
+    .search-options-title {
+      color: #FFF;
+      background-color: $brand-color-main;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 15px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: $marginM;
+    }
+
+    .chosen-area-list {
+      @include removable-list($brand-color-main, $brand-color-main-light1);
+      margin-left: 10px;
+      margin-right: 10px;
+
+      > li > a {
+        color: #FFF;
+      }
+    }
+
+    .map-selection-list {
+      margin-left: 25px;
+      margin-top: 15px;
+    }
+
+    input.new-area-name {
+      width: 225px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .areaButton {
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    #button-modify-map {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+#search-map {
+  width: 700px;
+  height: 650px;
+
+  .olMapViewport {
+    cursor: move;
+  }
+}
+
+.results-empty-text {
+  text-align:center;
+  width: 300px;
+  margin: $baseline*4 auto;
+  font-size: 18px;
+  color: #FFF;
+}
+
+.popup-article {
+  position: relative; // to allow proper child absolute positioning
+  background-color: #fff;
+  width: 410px;
+  height: 100px;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  color: $color-text;
+  border-bottom: 1px solid darken($color-light-grey, 15%);
+
+  .img-cutout {
+    width: 140px;
+    height: 88px;
+    overflow: hidden;
+    float: left;
+
+    img {
+      height: 88px;
+      -ms-interpolation-mode: bicubic;
+    }
+  }
+
+  h1,h2,h3,h4,h5,p,blockquote,a {
+    margin-left: 150px;
+    margin-right: 20px;
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+  }
+
+  h5 {
+    color: lighten($color-text, 20%);
+  }
+
+  .selectArticle {
+    text-decoration: none;
+    color: $color-text;
+  }
+
+  time {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 0.7em;
+    color: $color-text;
+  }
+}
+
+#moreArticlesButton {
+  font-size: 1.1em;
+  width: 350px;
+  height: 60px;
+  display: block;
+  margin: 0 auto;
+  clear: left;
+}
+
+.form-label {
+  font-style: italic;
+  color: $brand-color-main;
+  margin: 18px 10px 6px;
+}
+
+#resultpage-map-dialog header {
+  font-weight: bold;
+  box-shadow: none;
+  color: #FFF;
+  background-color: $brand-color-main;
+}
+
+#resultpage-map-dialog section {
+  box-shadow: none;
+}

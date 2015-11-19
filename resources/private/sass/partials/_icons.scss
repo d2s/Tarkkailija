@@ -1,0 +1,160 @@
+
+.inline-icon {
+  font-size: 0.8em;
+}
+
+.icon, .icon-small, .icon-tiny, .icon-large {
+  display: inline-block;
+  background-image: url('/app/img/icons-sprite.png');
+  background-repeat: no-repeat;
+}
+
+.btn .icon-small {
+  float: left;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+
+  &.inline-left {
+    margin-right: 10px;
+    float: left;
+    margin-top: 3px;
+  }
+
+  &.house {
+  }
+
+  &.folders {
+    background-position: 0px -100px;
+  }
+
+  &.help {
+    background-position: 0px -200px;
+  }
+
+  &.share {
+    background-position: 0px -498px;
+    height: 24px;
+    &:hover {
+      background-position: 0px -501px;
+    }
+  }
+
+  &.looking-glass {
+    background-position: 0px -600px;
+  }
+
+  &.looking-glass-white {
+    background-position: 0px -700px;
+  }
+
+  &.forward {
+    background-position: 0px -1100px;
+  }
+
+  &.down {
+    background-position: 0px -1200px;
+  }
+
+  &.liking {
+    background-position: 0px -1700px;
+  }
+
+  &.flash-light {
+    background-position: 0px -2500px;
+  }
+
+  &.flash-light-dark {
+    background-position: 0px -2396px;
+    height: 24px;
+    &:hover {
+      background-position: 0px -2400px;
+    }
+  }
+}
+
+.icon-small {
+  width: 15px;
+  height: 15px;
+
+  &.inline-left {
+    margin-right: 8px;
+    float: left;
+    margin-top: 6px;
+  }
+
+  &.inline-right {
+    margin-top: 7px;
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  &.list {
+    background-position: 0px -300px;
+  }
+
+  &.add {
+    background-position: 0px -1300px;
+  }
+
+  &.compass {
+    background-position: 0px -400px;
+  }
+
+  &.close {
+    background-position: 0px -900px;
+  }
+  &.close-white {
+    background-position: 0px -800px;
+  }
+
+  &.accept {
+    background-position: 0px -1000px;
+  }
+  &.add-white {
+    background-position: 0px -2300px;
+  }
+
+  &.house {
+    background-position: 0px -1600px;
+  }
+}
+
+.icon-tiny {
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  &.inline-left {
+    margin-right: 10px;
+    float: left;
+    margin-top: 7px;
+  }
+
+  &.play {
+    background-position: 0px -1500px;
+  }
+
+
+}
+
+.icon-large {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  &.email {
+    background-position: 0px -1900px;
+  }
+
+  &.rss {
+    background-position: 0px -1800px;
+  }
+}

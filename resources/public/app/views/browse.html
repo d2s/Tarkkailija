@@ -1,0 +1,89 @@
+<div class="wrapper" id="browse-watches-page">
+  <div ng-show="isLogged()" class="own-watches">
+    <h2 sade-i18n="watch.own">Omat vahtisi</h2>
+
+    <ul ng-show="ownWatches.length > 0" class="watch-list">
+      <li ng-repeat="watch in ownWatches" class="watch">
+        <a href="#/search/{{watch._id}}" title="Näytä vahti">
+          <header>
+            <span class="icon looking-glass-white inline-left"></span>{{watch.name}}
+          </header>
+
+          <section>
+            <div ng-show="watch.subscribed" class="subscribed" sade-i18n="watch.subscribed">Olet tilannut tämän vahdin!</div>
+            <h4 sade-i18n="watch.areas">Vahdin alueet</h4>
+            <ul class="watch-areas">
+              <li ng-repeat="area in watch.areas">{{area.name}}</li>
+            </ul>
+
+            <hr />
+
+            <h4 sade-i18n="watch.categories">Vahdin aihealueet</h4>
+            <ul class="watch-categories">
+              <li ng-repeat="cat in watch.categories">{{cat.name}}</li>
+            </ul>
+          </section>
+
+          <div class="watch-created">{{i18n('general.created')}}: <time datetime="">{{watch.created | date: 'dd.MM.yyyy'}}</time></div>
+        </a>
+      </li>
+    </ul>
+
+    <div class="push"></div>
+
+    <div ng-show="ownWatches.length == 0">
+      <p class="results-empty-text" sade-i18n="watch.own.none">Ei omia vahteja</p>
+    </div>
+  </div>
+
+  <div ng-show="publicWatches.watches.length == 0 && publicSearchTerm == null">
+    <p class="results-empty-text" sade-i18n="watch.public.nonesuggest">Ei julkisia vahteja tarjolla. Ehkä haluaisit tehdä ensimmäisen?</p>
+  </div>
+
+  <div ng-hide="publicWatches.watches.length == 0 && publicSearchTerm == null">
+    <header class="public-watches-search" sade-sticky="40">
+      <form class="watch-search" ng-submit="searchPublicWatches()">
+       <input type="text" ng-model="publicSearchTerm" placeholder="{{i18n('watch.searchbyname')}}" />
+       <input type="submit" class="btn slim" value="{{i18n('general.dosearch')}}" />
+      </form>
+
+      <h2 ng-hide="publicWatches.total == undefined">{{i18n('watch.public.total', publicWatches.total)}} <span ng-hide="publicWatches.total == publicWatches.queryHits">- {{i18n('watch.public.queryhits')}} {{publicWatches.queryHits}}</span></h2>
+
+      <p ng-show="publicSearchLoading"><span sade-i18n="general.loading">Ladataan...</span> <span class="ajax-loader dark"></span></p>
+    </header>
+
+    <div ng-show="publicWatches.watches.length == 0 && publicSearchTerm != null">
+      <p class="results-empty-text" sade-i18n="watch.public.nonefound">Ei löytynyt julkisia vahteja annetuilla hakuehdoilla</p>
+    </div>
+
+    <ul class="watch-list public">
+      <li ng-repeat="watch in publicWatches.watches" class="watch">
+        <div class="unavailable-mask" ng-show="publicSearchLoading"></div>
+        <a href="#/search/{{watch._id}}" title="{{i18n('watch.show')}}">
+          <header>
+            <span class="icon looking-glass-white inline-left"></span>{{watch.name}}
+          </header>
+
+          <section>
+            <div ng-show="watch.subscribed" class="subscribed" sade-i18n="watch.subscribed">Olet tilannut tämän vahdin!</div>
+            <h4 sade-i18n="watch.areas">Vahdin alueet</h4>
+            <ul class="watch-areas">
+              <li ng-repeat="area in watch.areas">{{area.name}}</li>
+            </ul>
+
+            <hr />
+
+            <h4 sade-i18n="watch.categories">Vahdin aihealueet</h4>
+            <ul class="watch-categories">
+              <li ng-repeat="cat in watch.categories">{{cat.name}}</li>
+            </ul>
+          </section>
+
+          <div class="watch-created">{{i18n('general.created')}}: <time datetime="">{{watch.created | date: 'dd.MM.yyyy'}}</time></div>
+        </a>
+      </li>
+    </ul>
+
+    <button class="btn more-watches" ng-click="findMorePublicWatches()" ng-hide="publicWatches.queryHits == 0" ng-disabled="publicWatches.watches.length == publicWatches.queryHits || publicSearchLoading" sade-i18n="watch.moreresults">Lisää vahteja...</button>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+/* Customize your modal window here, you can add background image too */
+
+
+.window {
+  position:fixed;
+  left: 50%;
+  top: 20%;
+  margin-left: -12em;
+  width: 24em;
+  display:none;
+  z-index:9999;
+  background: white;
+  overflow:hidden;
+  &.rounded {
+    border-radius: 6px;
+  }
+
+  header {
+    height: $baseline;
+    padding: $marginS $marginL;
+    text-transform: uppercase;
+    
+    p {
+      margin: 0px;
+      font-size: 20px;
+      display: inline;
+    }
+    .dialog-close {
+      float: right;
+      cursor:pointer;
+    }
+  }
+
+  section {
+    margin-top: $marginM;
+    padding: $marginM $marginM $marginM $marginM;
+  }
+
+  footer {
+    display: block;
+    font-size:0.75em;
+    padding:$baseline;
+    text-align: center;
+  }
+}
+
+/* Z-index of .mask must lower than .window */
+.mask {
+  position: fixed;
+  z-index:9000;
+  display:none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  &.black {
+    background-color:#000;
+  }
+  &.white {
+    background-color:#fff;
+  }
+  &.transparent {
+    opacity: 0.5;
+  }
+}
+
+.autosized {
+  min-width:$cols4;
+  min-height:$baseline * 10;
+  height: auto;
+  width: auto;
+}
