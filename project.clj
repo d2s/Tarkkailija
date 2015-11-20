@@ -47,8 +47,8 @@
              :tarkkailijatest {:jvm-opts ["-Dtarget.server=https://qa.etarkkailija.fi"]
                                :injections [(System/setProperty "test_mongo_uri" "mongodb://localhost/tarkkailija-test")]}}
   :jar-exclusions [#".DS_Store"]
-  :repositories [["solita-archiva" {:url "http://mvn.solita.fi/archiva/repository/solita" :checksum :ignore}]]
-  :plugin-repositories [["solita-archiva" {:url "http://mvn.solita.fi/archiva/repository/solita" :checksum :ignore}]]
+  :repositories [["solita-archiva" {:url "http://mvn.solita.fi/repository/solita" :checksum :ignore}]]
+  :plugin-repositories [["solita-archiva" {:url "http://mvn.solita.fi/repository/solita" :checksum :ignore}]]
   :aliases {"verify"      ["embongo" "with-profile" "dev,alltests" "midje"]
             "integration" ["embongo" "with-profile" "dev,itest" "midje"]}
   :auto-clean false
