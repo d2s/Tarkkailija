@@ -1,4 +1,4 @@
-(defproject tarkkailija "1.4.4-SNAPSHOT"
+(defproject tarkkailija "1.4.5-SNAPSHOT"
   :description "Tarkkailija"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/tools.nrepl "0.2.2"]

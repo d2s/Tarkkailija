@@ -402,11 +402,11 @@
   width: 400px;
   margin-bottom: 12px;
   margin-top: 24px;
-
   a {
     display: inline-block;
+    margin-top: $marginM;
     margin-right: $marginM;
-    max-width: 160px;
+    max-width: 200px;
     &:last-child {
       margin-right: 0;
     }
@@ -414,8 +414,8 @@
   p {
     margin-bottom: 0;
   }
-
 }
+
 // roundabout jquery plugin
 
 .roundabout-holder {

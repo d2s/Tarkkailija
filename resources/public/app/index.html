@@ -169,14 +169,23 @@
           <div class="frontpage-description-chapter"><i sade-i18n="frontpage.text.part5"></i></div>
           <section class="provider-logos">
             <p sade-i18n="frontpage.serviceproviders">Palvelun tarjoaa</p>
-            <a href="http://www.solita.fi">
-              <img src="img/solita-logo.png" alt="{{loc.fi['frontpage.solita']}}">
+            <a href="http://www.solita.fi" target="_blank">
+              <img src="img/solita-logo.png" alt="{{i18n('frontpage.solita')}}">
             </a>
-            <a href="http://www.syke.fi/{{lang}}-FI">
-              <img src="img/syke-tunnus-rgb-pysty.png" alt="{{loc.fi['frontpage.syke']}}">
+            <a href="http://www.ym.fi/{{lang}}-FI" target="_blank">
+              <img src="img/ym-logo-rgb.png" alt="{{i18n('frontpage.ymparistoministerio')}}">
             </a>
-            <a href="http://www.ym.fi/{{lang}}-FI">
-              <img src="img/ym-logo-rgb.png" alt="{{loc.fi['frontpage.ymparistoministerio']}}">
+            <a href="http://www.syke.fi/{{lang}}-FI" target="_blank">
+              <img src="img/syke-tunnus-rgb-pysty.png" alt="{{i18n('frontpage.syke')}}">
+            </a>
+            <a href="http://www.leiki.com/" target="_blank">
+              <img src="img/leiki_logo.png" alt="{{i18n('frontpage.leiki')}}">
+            </a>
+            <a href="http://www.sito.fi/sv/" target="_blank" ng-show="lang == 'sv'">
+              <img src="img/sito_logo.png" alt="{{i18n('frontpage.sito')}}">
+            </a>
+            <a href="http://www.sito.fi/" target="_blank" ng-show="lang != 'sv'">
+              <img src="img/sito_logo.png" alt="{{i18n('frontpage.sito')}}">
             </a>
           </section>
         </div>
