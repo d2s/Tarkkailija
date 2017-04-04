@@ -23,11 +23,10 @@
       <header id="header">
         <div class="header-links">
           <div class="header-wrapper header-links-content">
-            <a href="#/feedback" id="feedback-link" sade-i18n="layout.nav.givefeedback"><span class="inline-icon icon-tiny play"></span></a>
             <div id="lang-select" ng-controller="LanguageController">
               <div ng-show="hasMultipleLanguageChoices()">
                 <span><a href="" ng-click="changeLocale('fi')" class="lang-flag lang-fi">Suomeksi</a> | </span>
-                <span><a href="" ng-click="changeLocale('sv')" class="lang-flag lang-sv">På svenska</a> | </span>
+                <span><a href="" ng-click="changeLocale('sv')" class="lang-flag lang-sv">På svenska</a></span>
               </div>
             </div>
           </div>
@@ -216,10 +215,8 @@
           <p><span sade-i18n="frontpage.footer.email">Sähköposti: </span><img class="footer-mail-img" src="img/mikko_mail.png" alt="etunimi.sukunimi@solita.fi"></img></p>
         </li>
         <li>
-          <p><span sade-i18n="frontpage.footer.feedback.text">Voit lähettää meille palautetta </span> <a id="footer-feedback-link" sade-i18n="frontpage.footer.feedback.link" href="#/feedback">täältä</a>.</p>
-          <p><a id="footer-facebook-link"  href="http://twitter.com/tarkkailija/" target="_blank">Tarkkailija Twitter</a></p>
-          <p><a id="footer-facebook-link"  href="http://facebook.com/etarkkailija/" target="_blank">Tarkkailija Facebook</a></p>
-          <fb:like href="http://facebook.com/etarkkailija" send="false" width="330" show_faces="false" colorscheme="dark" class="fb-like"></fb:like>
+          <h3>Some</h3>
+          <p><a id="footer-twitter-link"  href="https://twitter.com/elinymparisto" target="_blank">Elinympäristö Twitter</a></p>
         </li>
 
       </ul>

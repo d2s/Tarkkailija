@@ -10,6 +10,10 @@
 .project
 bin
 
+# Idea:
+*.iml
+.idea
+
 # Maven:
 target
 pom.xml
@@ -34,3 +38,5 @@ classes/*
 
 # properties
 /resources/private/configs/*.properties
+
+.nrepl-port

@@ -1,4 +1,4 @@
-(defproject tarkkailija "1.4.5-SNAPSHOT"
+(defproject tarkkailija "1.4.6-SNAPSHOT"
   :description "Tarkkailija"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/tools.nrepl "0.2.2"]
@@ -29,7 +29,11 @@
 ;                                    [com.github.detro/phantomjsdriver "1.2.0"]
                                     ]
                      :plugins [[lein-midje "2.0.1"]
-                               [lein-buildid "0.1.0"]
+                               ;; Commented out the "lein-buildid" plugin which seems to be unused, "lein-build-info" plugin does the same job.
+                               ;; This has been loaded from Solita-archiva which is closed on 19.6.2016.
+                               ;; Also commented out "lein-buildid" in build script on Jenkins.
+                               ;; If needed, this could be replaced with e.g. [lupapiste/lein-buildid "0.4.2"]. Then need to modify loading of build-info in env.clj.
+;                               [lein-buildid "0.1.0"]
                                [lein-embongo "0.2.0"]
                                [lein-js-compiler "0.1.0-SNAPSHOT"]
                                [lein-build-info "0.1.0-SNAPSHOT"]]
@@ -47,8 +51,8 @@
              :tarkkailijatest {:jvm-opts ["-Dtarget.server=https://qa.etarkkailija.fi"]
                                :injections [(System/setProperty "test_mongo_uri" "mongodb://localhost/tarkkailija-test")]}}
   :jar-exclusions [#".DS_Store"]
-  :repositories [["solita-archiva" {:url "http://mvn.solita.fi/repository/solita" :checksum :ignore}]]
-  :plugin-repositories [["solita-archiva" {:url "http://mvn.solita.fi/repository/solita" :checksum :ignore}]]
+  :repositories [#_["solita-archiva" {:url "http://mvn.solita.fi/repository/solita" :checksum :ignore}]]
+  :plugin-repositories [#_["solita-archiva" {:url "http://mvn.solita.fi/repository/solita" :checksum :ignore}]]
   :aliases {"verify"      ["embongo" "with-profile" "dev,alltests" "midje"]
             "integration" ["embongo" "with-profile" "dev,itest" "midje"]}
   :auto-clean false
