@@ -1,3 +1,10 @@
+
+> <br/>
+> <b>HUOMIO:</b><br/>
+> Tarkkailijapalvelu poistetaan käytöstä 31.1.2018.<br/>
+> Sammuttamisen yhteydessä poistetaan palvelun sisältöön liittyvät tiedot sekä kaikki palveluun rekisteröityneiden henkilöiden tiedot. Tietoja ei tulla säilyttämään tai arkistoimaan.<br/>
+> Kiitämme osaltamme käyttäjiä kiinnostuksesta palveluun. <br/><br/>
+
 # Tarkkailija
 
 Verkkopalvelu asuinympäristösi tapahtumien seurantaan.
